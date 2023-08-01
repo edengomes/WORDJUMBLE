@@ -28,7 +28,7 @@ const playButton = document.getElementById('play-button');
 playButton.addEventListener('click', showFaseScreen);
 
 function backToFaseScreen(faseNumber) {
-    console.log(faseCurrent);
+
     if(faseNumber === 1){
         const faseScreens = document.querySelector('.game-container');
         faseScreens.style.display = 'none';
@@ -357,6 +357,8 @@ function stageStart1() {
         }
     }
 
+    
+
     const dropArea = document.querySelector('.drop-area');
     dropArea.addEventListener('dragover', dragOverHandler);
     dropArea.addEventListener('drop', dropHandler);
@@ -367,6 +369,83 @@ function stageStart1() {
 
     imageLeft.addEventListener('dragstart', dragStartHandler);
     imageRight.addEventListener('dragstart', dragStartHandler);
+
+    let touchStartX, touchEndX;
+    let touchImageElement = null;
+
+    function touchStartHandler(event) {
+        if (!playClicked || !selectedButton) {
+            event.preventDefault();
+            return;
+        }
+        if (
+            selectedButton &&
+            (event.target.classList.contains("image-left") ||
+                event.target.classList.contains("image-right"))
+        ) {
+            touchStartX = event.changedTouches[0].clientX;
+            touchImageElement = event.target;
+            event.preventDefault();
+        } else {
+            event.preventDefault();
+        }
+    }
+
+    
+    
+
+    function touchEndHandler(event) {
+        event.preventDefault();
+
+        if (!selectedButton) {
+            return;
+        }
+
+        if (imageCount >= maxImages) {
+            alert("Limite de imagens atingido (5 imagens).");
+            return;
+        }
+
+        touchEndX = event.changedTouches[0].clientX;
+
+        if (
+            Math.abs(touchEndX - touchStartX) > 50 // Defina um valor adequado para a sensibilidade do gesto de arrastar
+        ) {
+            const imageUrl = event.target.src;
+            const imgElement = document.createElement("img");
+            imgElement.src = imageUrl;
+            imgElement.className = "image";
+            imgElement.draggable = false;
+            const dropArea = document.querySelector('.drop-area');
+            dropArea.appendChild(imgElement);
+
+            const customData = event.target.className;
+            if (customData === "image-left" && selectedButton.previousElementSibling) {
+                selectedButton.parentElement.insertBefore(
+                    selectedButton,
+                    selectedButton.previousElementSibling
+                );
+            } else if (customData === "image-right" && selectedButton.nextElementSibling) {
+                selectedButton.parentElement.insertBefore(
+                    selectedButton,
+                    selectedButton.nextElementSibling.nextElementSibling
+                )
+            }
+
+            imageCount++;
+        }
+        if (touchImageElement) {
+        touchImageElement.style.transform = ""; // Remove a translação da imagem
+        touchImageElement = null;
+    }
+    }
+
+
+    imageLeft.addEventListener('touchstart', touchStartHandler);
+    imageRight.addEventListener('touchstart', touchStartHandler);
+
+    imageLeft.addEventListener('touchend', touchEndHandler);
+    imageRight.addEventListener('touchend', touchEndHandler);
    
 
     function verifyWord() {
