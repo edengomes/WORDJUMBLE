@@ -153,6 +153,7 @@ body{
   background-color: rgb(27, 102, 27);
 }
 
+
 .game-container button {
   margin: 3px;
   justify-content: center;
@@ -160,9 +161,9 @@ body{
   align-items: center;
   background-color:#FFCC00; /* Cor de fundo do botão (amarelo) */
   color: #FFFFFF; /* Cor do texto do botão (branco) */
-  font-size: 18px;
+  font-size: 2em;
   font-weight: bold;
-  padding: 12px 24px;
+  padding: 6px 15px;
   border-radius: 10px; /* Bordas arredondadas */
   cursor: pointer;
   box-shadow: 0px 5px 10px white; /* Sombra do botão */
@@ -178,7 +179,7 @@ body{
 
 .drop-area {
   width: 50%; /* Aumentar a largura para 300px */
-  height: 200px;
+  height: 100px;
   display: flex;
   align-items: center;  
   border: 10px solid rgba(165, 42, 42, 0.616);
@@ -188,14 +189,10 @@ body{
 
 .image-container {
   width: 30vw;
-  margin-top: 20px; /* Adicionar um espaçamento entre a drop-area e a image-container */
   cursor: not-allowed;
   display: flex;
   justify-content: center;
   gap: 5px;
-  
-
-  
 }
   
 .word-list-container h2 {
@@ -347,9 +344,9 @@ h2{
   align-items: center;
   background-color:#FFCC00; /* Cor de fundo do botão (amarelo) */
   color: #FFFFFF; /* Cor do texto do botão (branco) */
-  font-size: 18px;
+  font-size: 2em;
   font-weight: bold;
-  padding: 12px 24px;
+  padding: 6px 15px;
   border-radius: 10px; /* Bordas arredondadas */
   cursor: pointer;
   box-shadow: 0px 5px 10px white; /* Sombra do botão */
@@ -417,9 +414,9 @@ h2{
   align-items: center;
   background-color:#FFCC00; /* Cor de fundo do botão (amarelo) */
   color: #FFFFFF; /* Cor do texto do botão (branco) */
-  font-size: 18px;
+  font-size: 2em;
   font-weight: bold;
-  padding: 12px 24px;
+  padding: 6px 15px;
   border-radius: 10px; /* Bordas arredondadas */
   cursor: pointer;
   box-shadow: 0px 5px 10px white; /* Sombra do botão */
@@ -546,13 +543,13 @@ h2{
 
   .game-container {
     width: 100%;
-    height: 68%;
+    height: 80%;
     border: 8px solid rgba(165, 42, 42, 0.616);
   }
   .game-container button{
       width: 70px;
       height: 40px;
-      font-size:15px;
+      font-size:0.8em;
       margin-top: 10px;
   }
   .drop-area {
@@ -561,12 +558,7 @@ h2{
     border: 5px solid rgba(165, 42, 42, 0.616);
   }
 
-  .drop-area img{
-      display: block;
-      max-width: 80%; /* A imagem não ultrapassa a largura do botão */
-      max-height: 80%; /* A imagem não ultrapassa a altura do botão */
-      margin: 0;
-  }
+
   .word-list-container h2{
     width: 100%;
     font-size: 1.7em;
@@ -585,7 +577,7 @@ h2{
   .game-container2 button{
       width: 70px;
       height: 40px;
-      font-size:15px;
+      font-size:0.8em;
       margin-top: 10px;
   }
   .drop-area2 {
@@ -594,12 +586,6 @@ h2{
     border: 5px solid rgba(165, 42, 42, 0.616);
   }
 
-  .drop-area2 img{
-      display: block;
-      max-width: 80%; /* A imagem não ultrapassa a largura do botão */
-      max-height: 80%; /* A imagem não ultrapassa a altura do botão */
-      margin: 0;
-  }
   .word-list-container2 h2{
     width: 100%;
     font-size: 1.7em;
@@ -619,7 +605,7 @@ h2{
   .game-container3 button{
       width: 70px;
       height: 40px;
-      font-size:15px;
+      font-size:0.8em;
       margin-top: 10px;
   }
   .drop-area3 {
@@ -628,12 +614,13 @@ h2{
     border: 5px solid rgba(165, 42, 42, 0.616);
   }
 
-  .drop-area3 img{
-      display: block;
-      max-width: 80%; /* A imagem não ultrapassa a largura do botão */
-      max-height: 80%; /* A imagem não ultrapassa a altura do botão */
-      margin: 0;
+  image-container {
+    width: 100%;
+    height: 200px;
+    gap: 3px;
   }
+    
+  
   .word-list-container3 h2{
     width: 100%;
     font-size: 1.7em;
