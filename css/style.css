@@ -1,0 +1,647 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body{
+  background-color: white;
+  font-family: 'Cabin Sketch', cursive;
+
+}
+/* Estilos para as áreas */
+.container {
+  display: flex;
+  flex-direction: column; /* Centralizar em coluna */
+  align-items: center; /* Centralizar horizontalmente */
+  justify-content: center; /* Centralizar verticalmente */
+  padding: 20px;
+  width: 100vw;
+  height: 100vh; /* Define a altura total da página */
+  box-sizing: border-box; /* Incluir bordas e preenchimentos no tamanho total */
+  background-image: url('../imgs/muro.jpg');
+
+  
+}
+
+.homeScreen-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 60vw;
+  height: 60vh; /* Usar altura total da tela */
+  margin: auto; /* Centralizar verticalmente */
+  background-color: rgb(27, 102, 27);
+  border: 20px solid rgba(165, 42, 42, 0.616);
+  border-radius: 4px;
+}
+
+
+.homeScreen-container h1 {
+  font-size: 4em;
+  margin-bottom: 20px;
+  color: white;
+  margin-bottom: 3vh;
+}
+
+
+.modal-homeScreen{
+  width: 100%;
+  display: flex;
+  margin-top: 2%;
+  margin-right: 5%;
+  justify-content: right;
+}
+
+#btn-modal1{
+  width: 40px;
+  height: 40px;
+  font-size: 2.3em;
+  border-radius: 5px;
+  background-color: rgb(27, 102, 27);
+  color: white;
+  margin-top: -8vh;
+  margin-bottom: 5vh;
+  justify-content: right;
+  cursor: pointer;
+  border: 1.5px solid white;
+}
+
+.box-modal dialog{
+  width: 30vw;
+  background-color:white;
+  border: 5px solid hsl(0, 60%, 23%);
+  border-radius: 4px;
+  color:  rgb(27, 102, 27);
+  margin: auto;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.box-modal dialog h2{
+  margin: auto;
+  text-align: center;
+  color:  rgb(27, 102, 27);;
+  
+}
+.box-modal button{
+  width: 60px;
+  height: 25px;
+  border-radius: 5px;
+  background-color: rgb(27, 102, 27);
+  margin-top: 5%;
+  margin-bottom: 2%;
+  font-size: 1em;
+  color: white;
+
+}
+
+.menu-container{
+  width: 60vw;
+  height: 60vh;
+  flex-direction: column;
+  padding: 20px;
+  align-items: center;
+  margin: auto;
+  background-color: rgb(27, 102, 27);
+  border: 20px solid rgba(165, 42, 42, 0.616);
+}
+
+.menu-container #btn-backMenu{
+  margin: 3px;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  background-color:#FFCC00; /* Cor de fundo do botão (amarelo) */
+  color: #FFFFFF; /* Cor do texto do botão (branco) */
+  font-size: 18px;
+  font-weight: bold;
+  padding: 12px 24px;
+  border-radius: 10px; /* Bordas arredondadas */
+  cursor: pointer;
+  box-shadow: 0px 5px 10px white; /* Sombra do botão */
+  transition: transform 0.2s ease-in-out; /* Efeito de transição no hover */
+} 
+.menu-back-btn {
+  width: 100%;
+  display: flex;
+  margin-top: -1%;
+}
+.menu-container h1{
+  width: 16vw;
+  height: 12vh;
+  font-size: 3.5em;
+  text-align: center;
+  margin-bottom: 30px;
+  color: white;
+  border:3px solid white;
+  border-radius: 10px;
+  margin-top: -5%;
+  
+}
+
+.game-container {
+  margin: auto;
+  width: 70vw;
+  height: 85vh;
+  display: none; /* Inicia oculto */
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 20px solid rgba(165, 42, 42, 0.616);
+  border-radius: 4px;
+  background-color: rgb(27, 102, 27);
+}
+
+.game-container button {
+  margin: 3px;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  background-color:#FFCC00; /* Cor de fundo do botão (amarelo) */
+  color: #FFFFFF; /* Cor do texto do botão (branco) */
+  font-size: 18px;
+  font-weight: bold;
+  padding: 12px 24px;
+  border-radius: 10px; /* Bordas arredondadas */
+  cursor: pointer;
+  box-shadow: 0px 5px 10px white; /* Sombra do botão */
+  transition: transform 0.2s ease-in-out; /* Efeito de transição no hover */
+}
+
+.game-container button :hover{
+  transform: scale(1.05);
+}
+.game-container button :active{
+  transform: scale(0.95);
+}
+
+.drop-area {
+  width: 50%; /* Aumentar a largura para 300px */
+  height: 100px;
+  display: flex;
+  align-items: center;  
+  border: 10px solid rgba(165, 42, 42, 0.616);
+  margin-top: 6vh;
+  justify-content: center;
+}
+
+.image-container {
+  width: 30vw;
+  margin-top: 20px; /* Adicionar um espaçamento entre a drop-area e a image-container */
+  cursor: not-allowed;
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  
+}
+
+.word-list-container h2 {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+#random-word {
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-back{
+  width: 100%;
+  display: flex;
+  margin-top: -1%;
+}
+
+h2{
+  margin-top: 2vh;
+  font-size: 2.5em;
+  width: 29vw;
+  color: white; /* Cor branca do giz */
+  border-bottom: 4px solid white; /* Borda do giz */
+  
+  
+}
+
+#play-button {
+  display: inline-block;
+  border: 5px solid white; /* Cor da borda do botão */
+  border-radius: 50%; /* Bordas arredondadas do botão */
+  padding: 15px; /* Espaçamento interno para dar espaço à imagem */
+  background-color: rgb(27, 102, 27);; /* Cor de fundo do botão */
+  cursor: pointer; 
+}
+
+#play-button img{
+  display: block;
+  max-width: 100%; /* A imagem não ultrapassa a largura do botão */
+  max-height: 100%; /* A imagem não ultrapassa a altura do botão */
+  margin: 0 auto;
+}
+
+#fase1-button {
+  display: inline-block;
+  border: 3px solid white; /* Cor da borda do botão */
+  padding: 15px; /* Espaçamento interno para dar espaço à imagem */
+  width: 100px;
+  background-color: rgb(27, 102, 27);; /* Cor de fundo do botão */
+  cursor: pointer;
+  border-radius:10px;
+}
+#fase1-button img{
+  display: block;
+  max-width: 100%; /* A imagem não ultrapassa a largura do botão */
+  max-height: 100%; /* A imagem não ultrapassa a altura do botão */
+  margin: 0 auto;
+}
+
+#fase2-button {
+  margin-left:  2vw;
+  display: inline-block;
+  border: 3px solid white; /* Cor da borda do botão */
+  padding: 15px; /* Espaçamento interno para dar espaço à imagem */
+  width: 100px;
+  background-color: rgb(27, 102, 27);; /* Cor de fundo do botão */
+  cursor: not-allowed;
+  border-radius:10px;
+}
+#fase2-button img{
+  display: block;
+  max-width: 100%; /* A imagem não ultrapassa a largura do botão */
+  max-height: 100%; /* A imagem não ultrapassa a altura do botão */
+  margin: 0 auto;
+}
+
+#fase3-button {
+  margin-left: 2vw;
+  display: inline-block;
+  border: 3px solid white; /* Cor da borda do botão */
+  padding: 15px; /* Espaçamento interno para dar espaço à imagem */
+  width: 100px;
+  background-color: rgb(27, 102, 27);; /* Cor de fundo do botão */
+  cursor: not-allowed;
+  border-radius:10px;
+}
+#fase3-button img{
+  display: block;
+  max-width: 100%; /* A imagem não ultrapassa a largura do botão */
+  max-height: 100%; /* A imagem não ultrapassa a altura do botão */
+  margin: 0 auto;
+}
+
+.image-container.selected {
+  cursor: pointer;
+}
+
+.image {
+  width: 50px;
+  margin: 5px; /* Adicionar uma margem de 5px */
+
+  border-radius: 3px;
+}
+
+.word-buttons {
+  display: flex;
+
+}
+
+.word-button {
+  margin: 5px;
+  padding: 10px 15px;
+  font-size: 18px;
+  background-color: #ccc;
+  border: none;
+  cursor: pointer;
+  
+}
+.btns{
+  margin-top: 2vh;
+  display: flex;
+  align-items: center;
+}
+
+/* Estilos para o botão quando selecionado */
+.word-button.selected {
+  background-color: rgb(10, 207, 10);
+}
+
+.game-container2 {
+  margin: auto;
+  width: 70vw;
+  height: 85vh;
+  display: none; /* Inicia oculto */
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 20px solid rgba(165, 42, 42, 0.616);
+  border-radius: 4px;
+  background-color: rgb(27, 102, 27);
+}
+
+.game-container2 button {
+  margin: 3px;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  background-color:#FFCC00; /* Cor de fundo do botão (amarelo) */
+  color: #FFFFFF; /* Cor do texto do botão (branco) */
+  font-size: 18px;
+  font-weight: bold;
+  padding: 12px 24px;
+  border-radius: 10px; /* Bordas arredondadas */
+  cursor: pointer;
+  box-shadow: 0px 5px 10px white; /* Sombra do botão */
+  transition: transform 0.2s ease-in-out; /* Efeito de transição no hover */
+}
+
+.drop-area2 {
+  width: 50%; /* Aumentar a largura para 300px */
+  height: 100px;
+  display: flex;
+  align-items: center;  
+  border: 10px solid rgba(165, 42, 42, 0.616);
+  margin-top: 6vh;
+  justify-content: center;
+}
+
+.image-container2 {
+  width: 100%;
+  margin-top: 20px; /* Adicionar um espaçamento entre a drop-area e a image-container */
+  cursor: not-allowed;
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+.word-list-container2 h2 {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+
+
+#random-word2 {
+  justify-content: center;
+  align-items: center;
+
+}
+.word-buttons2 {
+  display: flex;
+
+}
+
+.image-container2.selected {
+  cursor: pointer;
+}
+
+.game-container3 {
+  margin: auto;
+  width: 70vw;
+  height: 85vh;
+  display: none; /* Inicia oculto */
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 20px solid rgba(165, 42, 42, 0.616);
+  border-radius: 4px;
+  background-color: rgb(27, 102, 27);
+}
+
+.game-container3 button {
+  margin: 3px;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  background-color:#FFCC00; /* Cor de fundo do botão (amarelo) */
+  color: #FFFFFF; /* Cor do texto do botão (branco) */
+  font-size: 18px;
+  font-weight: bold;
+  padding: 12px 24px;
+  border-radius: 10px; /* Bordas arredondadas */
+  cursor: pointer;
+  box-shadow: 0px 5px 10px white; /* Sombra do botão */
+  transition: transform 0.2s ease-in-out; /* Efeito de transição no hover */
+}
+
+.drop-area3 {
+  width: 50%; /* Aumentar a largura para 300px */
+  height: 100px;
+  display: flex;
+  align-items: center;  
+  border: 10px solid rgba(165, 42, 42, 0.616);
+  margin-top: 6vh;
+  justify-content: center;
+}
+
+.image-container3 {
+  width: 100%;
+  margin-top: 20px; /* Adicionar um espaçamento entre a drop-area e a image-container */
+  cursor: not-allowed;
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+.word-list-container3 h2 {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+#random-word3 {
+  justify-content: center;
+  align-items: center;
+
+}
+.word-buttons3 {
+  display: flex;
+
+}
+
+.image-container3.selected {
+  cursor: pointer;
+}
+
+
+@media (min-width:320px) and (max-width:400px){
+  .container{
+    width: 100vw;
+  }
+  .homeScreen-container{
+    width: 100%;
+    height: 300px;
+    border: 10px solid rgba(165, 42, 42, 0.616);
+
+  }
+ .homeScreen-container h1{
+  font-size: 2em;
+  margin-top: 10px;
+ }
+ #play-button {
+    width: 50px;
+    border: 2px solid white; /* Cor da borda do botão */
+   
+  } 
+  #btn-modal1{
+    width: 30px;
+    height: 30px;
+    font-size: 1.5em;
+    border-radius: 3px;
+    background-color: rgb(27, 102, 27);
+    margin-top: -70px;
+    
+  }
+  .menu-container{
+    width: 100%;
+    height: 300px;
+    border: 10px solid rgba(165, 42, 42, 0.616);
+  }
+
+  .menu-container #btn-backMenu{
+    width: 70px;
+    height: 40px;
+    font-size:15px;
+  } 
+  .menu-container h1{
+    width: 45%;
+    height: 35px;
+    font-size: 1.5em;
+    text-align: center;
+    border:3px solid white;
+    margin-top: 10px;
+    
+  }
+
+  .btn-stages{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -5%;
+  }
+
+  #fase1-button {
+    border: 2px solid white; /* Cor da borda do botão */
+    width: 70px;  
+    font-size: 0.6em;
+    
+  }
+
+  #fase2-button {
+    border: 2px solid white; /* Cor da borda do botão */
+    width: 70px;  
+    font-size: 0.6em;
+    
+  }
+
+  #fase3-button {
+    border: 2px solid white; /* Cor da borda do botão */
+    width: 70px;  
+    font-size: 0.6em;
+    
+    
+  }
+
+  .game-container {
+    width: 100%;
+    border: 8px solid rgba(165, 42, 42, 0.616);
+  }
+  .game-container button{
+      width: 70px;
+      height: 40px;
+      font-size:15px;
+      margin-top: 10px;
+  }
+  .drop-area {
+    width: 98%; /* Aumentar a largura para 300px */
+    height: 100px;  
+    border: 5px solid rgba(165, 42, 42, 0.616);
+  }
+
+  .drop-area img{
+      display: block;
+      max-width: 80%; /* A imagem não ultrapassa a largura do botão */
+      max-height: 80%; /* A imagem não ultrapassa a altura do botão */
+      margin: 0;
+  }
+  .word-list-container h2{
+    width: 100%;
+    font-size: 1.7em;
+    text-align: center;
+    border-bottom: 2px solid white;
+  }
+  .word-list-container button{
+    font-size: 1.2em;
+    width: 50px;
+    }
+  .game-container2 {
+    width: 100%;
+    border: 8px solid rgba(165, 42, 42, 0.616);
+  }
+  .game-container2 button{
+      width: 70px;
+      height: 40px;
+      font-size:15px;
+      margin-top: 10px;
+  }
+  .drop-area2 {
+    width: 98%; /* Aumentar a largura para 300px */
+    height: 100px;  
+    border: 5px solid rgba(165, 42, 42, 0.616);
+  }
+
+  .drop-area2 img{
+      display: block;
+      max-width: 80%; /* A imagem não ultrapassa a largura do botão */
+      max-height: 80%; /* A imagem não ultrapassa a altura do botão */
+      margin: 0;
+  }
+  .word-list-container2 h2{
+    width: 100%;
+    font-size: 1.7em;
+    text-align: center;
+    border-bottom: 2px solid white;
+  }
+  .word-list-container2 button{
+    font-size: 1.2em;
+    width: 45px;
+  }
+
+  .game-container3 {
+    width: 100%;
+    border: 8px solid rgba(165, 42, 42, 0.616);
+  }
+  .game-container3 button{
+      width: 70px;
+      height: 40px;
+      font-size:15px;
+      margin-top: 10px;
+  }
+  .drop-area3 {
+    width: 98%; /* Aumentar a largura para 300px */
+    height: 100px;  
+    border: 5px solid rgba(165, 42, 42, 0.616);
+  }
+
+  .drop-area3 img{
+      display: block;
+      max-width: 80%; /* A imagem não ultrapassa a largura do botão */
+      max-height: 80%; /* A imagem não ultrapassa a altura do botão */
+      margin: 0;
+  }
+  .word-list-container3 h2{
+    width: 100%;
+    font-size: 1.7em;
+    text-align: center;
+    border-bottom: 2px solid white;
+  }
+  .word-list-container3 button{
+    font-size: 1.2em;
+    width: 45px;
+  }
+  
+}
+
+
+
+

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PROTOTIPO</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="homeScreen-container">
+        <div class="modal-homeScreen">
+          <button id="btn-modal1">?</button>
+        </div>
+        <div class="box-modal">
+          <dialog>
+            <h2>INFO</h2>
+            <p>SEJA BEM VINDO AO WORD JUMBLE</p>
+            <button id="btn-close">Fechar</button>
+          </dialog>
+        </div>
+        <h1>WORD JUMBLE!</h1>
+        <button id="play-button">
+          <img src="./imgs/play.png" alt="btn-play" />
+        </button>
+      </div>
+      <div class="menu-container" style="display: none">
+        <div class="menu-back-btn">
+          <button id="btn-backMenu">Voltar</button>
+        </div>
+        <h1>FASES</h1>
+        <div class="btn-stages">
+          <button id="fase1-button">
+            <img id="img1" src="./imgs/unlocked.png" alt="" />
+            <h3 style="color: white; font-size: 1.3em">FASE 1</h3>
+          </button>
+          <button id="fase2-button" disabled="true">
+            <img id="img2" src="./imgs/locked.png" alt="" />
+            <h3 style="color: white; font-size: 1.3em">FASE 2</h3>
+          </button>
+          <button id="fase3-button" disabled="true">
+            <img id="img3" src="./imgs/locked.png" alt="" />
+            <h3 style="color: white; font-size: 1.3em">FASE 3</h3>
+          </button>
+        </div>
+      </div>
+
+      <div class="game-container" style="display: none">
+        <div class="btn-back">
+          <button id="back-to-fase">Voltar</button>
+        </div>
+        <div class="drop-area">
+          <!-- A área de soltar imagens está vazia -->
+        </div>
+
+        <div class="image-container">
+          <!-- Imagens que podem ser arrastadas -->
+          <img class="image-left" src="./imgs/seta-left.png" draggable="true" />
+          <img
+            class="image-right"
+            src="./imgs/seta-right.png"
+            draggable="true"
+          />
+        </div>
+
+        <div class="word-list-container">
+          <div id="random-word" class="word-buttons"></div>
+          <h2>Palavra Embaralhada</h2>
+        </div>
+        <div class="btns">
+          <button id="restart-button">Restart</button>
+          <button id="verify-button">Verificar</button>
+          <button id="next-phase" style="display: none">Próxima Fase</button>
+        </div>
+      </div>
+      <div class="game-container2" style="display: none">
+        <div class="btn-back">
+          <button id="back-to-fase2">Voltar</button>
+        </div>
+        <div class="drop-area2">
+          <!-- A área de soltar imagens está vazia -->
+        </div>
+
+        <div class="image-container2">
+          <img
+            class="image-jump-left2"
+            src="./imgs/seta-jump-left.png"
+            draggable="true"
+          />
+          <img
+            class="image-left2"
+            src="./imgs/seta-left.png"
+            draggable="true"
+          />
+          <img
+            class="image-right2"
+            src="./imgs/seta-right.png"
+            draggable="true"
+          />
+          <img
+            class="image-jump-right2"
+            src="./imgs/seta-jump-right.png"
+            draggable="true"
+          />
+        </div>
+
+        <div class="word-list-container2">
+          <div id="random-word2" class="word-buttons2"></div>
+          <h2>Palavra Embaralhada</h2>
+        </div>
+        <div class="btns">
+          <button id="restart-button2">Restart</button>
+          <button id="verify-button2">Verificar</button>
+          <button id="next-phase2" style="display: none">Próxima Fase</button>
+        </div>
+      </div>
+      <div class="game-container3" style="display: none">
+        <div class="btn-back">
+          <button id="back-to-fase3">Voltar</button>
+        </div>
+        <div class="drop-area3">
+          <!-- A área de soltar imagens está vazia -->
+        </div>
+
+        <div class="image-container3">
+          <!-- Imagens que podem ser arrastadas -->
+          <img
+            class="image-jump-left3"
+            src="./imgs/seta-jump-left.png"
+            draggable="true"
+          />
+          <img
+            class="image-jump-right3"
+            src="./imgs/seta-jump-right.png"
+            draggable="true"
+          />
+        </div>
+
+        <div class="word-list-container3">
+          <div id="random-word3" class="word-buttons3"></div>
+          <h2>Palavra Embaralhada</h2>
+        </div>
+        <div class="btns">
+            <button id="restart-button3">Restart</button>
+            <button id="verify-button3">Verificar</button>
+            <button id="next-phase3" style="display: none">Próxima Fase</button>
+            <button id="restartAPP" style="display: none">Reiniciar Jogo</button>
+        </div>
+      </div>
+    </div>
+    <script src="./js/script.js"></script>
+  </body>
+</html>
