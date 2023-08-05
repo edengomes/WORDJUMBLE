@@ -8,19 +8,21 @@ body{
   font-family: 'Cabin Sketch', cursive;
 
 }
-/* Estilos para as áreas */
+
+.custom-swal2-modal{
+  width: 70%;
+}
+
 .container {
   display: flex;
-  flex-direction: column; /* Centralizar em coluna */
-  align-items: center; /* Centralizar horizontalmente */
-  justify-content: center; /* Centralizar verticalmente */
+  flex-direction: column; 
+  align-items: center; 
+  justify-content: center; 
   padding: 20px;
   width: 100vw;
-  height: 100vh; /* Define a altura total da página */
-  box-sizing: border-box; /* Incluir bordas e preenchimentos no tamanho total */
+  height: 100vh; 
+  box-sizing: border-box;
   background-image: url('../imgs/muro.jpg');
-
-  
 }
 
 .homeScreen-container {
@@ -29,8 +31,8 @@ body{
   align-items: center;
   justify-content: center;
   width: 60vw;
-  height: 60vh; /* Usar altura total da tela */
-  margin: auto; /* Centralizar verticalmente */
+  height: 60vh; 
+  margin: auto; 
   background-color: rgb(27, 102, 27);
   border: 20px solid rgba(165, 42, 42, 0.616);
   border-radius: 4px;
@@ -67,8 +69,10 @@ body{
   border: 1.5px solid white;
 }
 
+
 .box-modal dialog{
-  width: 30vw;
+  width: 800px;
+  height: 95%;
   background-color:white;
   border: 5px solid hsl(0, 60%, 23%);
   border-radius: 4px;
@@ -76,13 +80,15 @@ body{
   margin: auto;
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
+  position: absolute;
+  margin-top: -18%;
+  overflow-y: auto;
+  
 }
-
 .box-modal dialog h2{
   margin: auto;
   text-align: center;
   color:  rgb(27, 102, 27);;
-  
 }
 .box-modal button{
   width: 60px;
@@ -94,6 +100,13 @@ body{
   font-size: 1em;
   color: white;
 
+}
+
+.box-modal p{
+  margin: 10px;
+}
+.box-modal img{
+  margin: 10px;
 }
 
 .menu-container{
@@ -177,13 +190,20 @@ body{
   transform: scale(0.95);
 }
 
+.word-container {
+  font-size: 3em;
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
 .drop-area {
   width: 50%; /* Aumentar a largura para 300px */
   height: 100px;
   display: flex;
   align-items: center;  
   border: 10px solid rgba(165, 42, 42, 0.616);
-  margin-top: 6vh;
+  margin-top: 2vh;
   justify-content: center;
 }
 
@@ -337,6 +357,11 @@ h2{
   background-color: rgb(27, 102, 27);
 }
 
+.word-button2.selected {
+  background-color: rgb(10, 207, 10);
+}
+
+
 .game-container2 button {
   margin: 3px;
   justify-content: center;
@@ -359,8 +384,15 @@ h2{
   display: flex;
   align-items: center;  
   border: 10px solid rgba(165, 42, 42, 0.616);
-  margin-top: 6vh;
+  margin-top: 2vh;
   justify-content: center;
+}
+
+.word-container2 {
+  font-size: 3em;
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
 .image-container2 {
@@ -407,6 +439,11 @@ h2{
   background-color: rgb(27, 102, 27);
 }
 
+.word-button3.selected {
+  background-color: rgb(10, 207, 10);
+}
+
+
 .game-container3 button {
   margin: 3px;
   justify-content: center;
@@ -423,13 +460,20 @@ h2{
   transition: transform 0.2s ease-in-out; /* Efeito de transição no hover */
 }
 
+.word-container3 {
+  font-size: 3em;
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
 .drop-area3 {
   width: 50%; /* Aumentar a largura para 300px */
   height: 100px;
   display: flex;
   align-items: center;  
   border: 10px solid rgba(165, 42, 42, 0.616);
-  margin-top: 6vh;
+  margin-top: 2vh;
   justify-content: center;
 }
 
@@ -463,10 +507,12 @@ h2{
 }
 
 
+
 @media (min-width:320px) and (max-width:430px){
   .container{
     width: 100vw;
   }
+
   .homeScreen-container{
     width: 100%;
     height: 300px;
@@ -557,8 +603,6 @@ h2{
     height: 100px;  
     border: 5px solid rgba(165, 42, 42, 0.616);
   }
-
-
   .word-list-container h2{
     width: 100%;
     font-size: 1.7em;
@@ -614,9 +658,9 @@ h2{
     border: 5px solid rgba(165, 42, 42, 0.616);
   }
 
-  image-container {
-    width: 100%;
-    height: 200px;
+  .image-container {
+    width: 50%;
+    height: 70px;
     gap: 3px;
   }
     
@@ -634,6 +678,199 @@ h2{
   
 }
 
+@media (min-width: 1600px){
+  .container{
+    width: 100vw;
+  }
+
+  .custom-swal2-modal{
+    width: 900px;
+  } 
+  .homeScreen-container{
+    width: 80%;
+    height: 500px;
+    border: 10px solid rgba(165, 42, 42, 0.616);
+
+  }
+ .homeScreen-container h1{
+  font-size: 8em;
+  margin-top: -20px;
+ }
+ #play-button {
+    width: 100px;
+    border: 2px solid white; /* Cor da borda do botão */
+   
+  } 
+  #btn-modal1{
+    width: 80px;
+    height: 80px;
+    font-size: 3em;
+    border-radius: 3px;
+    background-color: rgb(27, 102, 27);
+    margin-top: -40px;
+    
+  }
+  .menu-container{
+    width: 70%;
+    height: 500px;
+    border: 10px solid rgba(165, 42, 42, 0.616);
+  }
+
+  .menu-container #btn-backMenu{
+    width: 150px;
+    height: 70px;
+    font-size:40px;
+  } 
+  .menu-container h1{
+    width: 300px;
+    height: 85px;
+    font-size: 5em;
+    text-align: center;
+    border:3px solid white;
+    margin-top: 10px;
+    
+  }
+
+  .btn-stages{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  #fase1-button {
+    border: 2px solid white; /* Cor da borda do botão */
+    width: 150px;  
+    font-size: 1.5em;
+    
+  }
+
+  #fase2-button {
+    border: 2px solid white; /* Cor da borda do botão */
+    width: 150px;  
+    font-size: 1.5em;
+    
+  }
+
+  #fase3-button {
+    border: 2px solid white; /* Cor da borda do botão */
+    width: 150px;  
+    font-size: 1.5em;
+  }
+
+  .game-container {
+    width: 80%;
+    height: 75%;
+    border: 8px solid rgba(165, 42, 42, 0.616);
+  }
+  .game-container button{
+      width: 150px;
+      height: 60px;
+      font-size:1.5em;
+      margin-top: 10px;
+  }
+  .drop-area {
+    width: 50%; /* Aumentar a largura para 300px */
+    height: 150px;  
+    border: 10px solid rgba(165, 42, 42, 0.616);
+  }
+
+  .drop-area img{
+    width: 100px;
+    
+  }
+
+  .image-container {
+    width: 100%;
+    height: 115px;
+    gap: 3px;
+  }
+  .word-list-container h2{
+    width: 100%;
+    font-size: 4em;
+    text-align: center;
+    border-bottom: 4px solid white;
+  }
+  .word-list-container button{
+    font-size: 2em;
+    width: 70px;
+  }
+  .game-container2 {
+    width: 80%;
+    height: 75%;
+    border: 8px solid rgba(165, 42, 42, 0.616);
+  }
+  .game-container2 button{
+      width: 150px;
+      height: 60px;
+      font-size:1.5em;
+      margin-top: 10px;
+  }
+  .drop-area2 {
+    width: 50%; /* Aumentar a largura para 300px */
+    height: 150px;  
+    border: 10px solid rgba(165, 42, 42, 0.616);
+  }
+
+  .drop-area2 img{
+    width: 100px;
+    
+  }
+
+  .image-container2 {
+    width: 100%;
+    height: 115px;
+    gap: 3px;
+  }
+  .word-list-container2 h2{
+    width: 100%;
+    font-size: 4em;
+    text-align: center;
+    border-bottom: 4px solid white;
+  }
+  .word-list-container2 button{
+    font-size: 2em;
+    width: 70px;
+  }
+  .game-container3 {
+    width: 80%;
+    height: 75%;
+    border: 8px solid rgba(165, 42, 42, 0.616);
+  }
+  .game-container3 button{
+      width: 150px;
+      height: 60px;
+      font-size:1.5em;
+      margin-top: 10px;
+  }
+  .drop-area3 {
+    width: 50%; /* Aumentar a largura para 300px */
+    height: 150px;  
+    border: 10px solid rgba(165, 42, 42, 0.616);
+  }
+
+  .drop-area3 img{
+    width: 100px;
+    
+  }
+
+  .image-container3 {
+    width: 100%;
+    height: 115px;
+    gap: 3px;
+  }
+  .word-list-container3 h2{
+    width: 100%;
+    font-size: 4em;
+    text-align: center;
+    border-bottom: 4px solid white;
+  }
+  .word-list-container3 button{
+    font-size: 2em;
+    width: 70px;
+  }
+ 
+}
 
 
 

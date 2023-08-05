@@ -1,13 +1,8 @@
 let playClicked = false;
-let selectedButton = null;
 let imageCount = 0; 
 let isFaseStarted = false;
 let isFaseStarted2 = false;
 let isFaseStarted3 = false; 
-let faseCurrent = 0;
-
-
-
 
 function restartApplication() {
     location.reload();
@@ -34,33 +29,27 @@ function backToFaseScreen(faseNumber) {
         faseScreens.style.display = 'none';
         const faseScreen = document.querySelector('.menu-container');
         faseScreen.style.display = 'flex';
-        faseCurrent = 0;
-       
+   
     }else if(faseNumber === 2){
         const faseScreens = document.querySelector('.game-container2');
         faseScreens.style.display = 'none';
         const faseScreen = document.querySelector('.menu-container');
         faseScreen.style.display = 'flex';
-        faseCurrent = 0;
-      
-       
+        
     }else if(faseNumber === 3){
         const faseScreens = document.querySelector('.game-container3');
         faseScreens.style.display = 'none';
         const faseScreen = document.querySelector('.menu-container');
         faseScreen.style.display = 'flex';
-        faseCurrent = 0;
         
     }
    
 }
-
 function modal(){
 
     const btnModal1 = document.querySelector('#btn-modal1');
     const modal = document.querySelector('.homeScreen-container dialog');
     const btnClose = document.querySelector('#btn-close');
-
 
     btnModal1.onclick = function () {
         modal.show()
@@ -68,8 +57,6 @@ function modal(){
     btnClose.onclick = function (){
         modal.close();
     }
-
-    
 }
 modal();
 
@@ -86,24 +73,20 @@ backToSplashButton.addEventListener('click', () => {
 );
 // Restante do código permanece o mesmo
 
-function startFase(faseNumber) {
-    console.log(faseNumber);    
+function startFase(faseNumber) {    
     if(faseNumber === 1 ){
         const faseScreen = document.querySelector('.menu-container');
         const gameContainer = document.querySelector('.game-container');
         if(!isFaseStarted){
-            // faseCurrent = 1;
             faseScreen.style.display = 'none';
             gameContainer.style.display = 'flex';
             stageStart1();
             isFaseStarted = true;
         }else{
-            
-            faseCurrent = 1;
             faseScreen.style.display = 'none';
             gameContainer.style.display = 'flex';
         }
-    }else if(faseNumber === 2 || faseCurrent === 2){
+    }else if(faseNumber === 2){
         const faseScreen = document.querySelector('.menu-container');
         const gameContainer2 = document.querySelector('.game-container2');
         if(!isFaseStarted2){
@@ -113,12 +96,10 @@ function startFase(faseNumber) {
             stageStart2();
             isFaseStarted2 = true;
         }else{
-            
             faseScreen.style.display = 'none';
             gameContainer2.style.display = 'flex';
-            faseCurrent = 2;
         }
-    }else if(faseNumber === 3 || faseCurrent === 3){
+    }else if(faseNumber === 3){
         const faseScreen = document.querySelector('.menu-container');
         const gameContainer3 = document.querySelector('.game-container3');
         if(!isFaseStarted3){
@@ -128,12 +109,9 @@ function startFase(faseNumber) {
             stageStart3();
             isFaseStarted3 = true;
         }else{
-            
             faseScreen.style.display = 'none';
             gameContainer3.style.display = 'flex';
-            faseCurrent = 3;
         }
-
     }
   
 }
@@ -147,8 +125,8 @@ fase2Button.addEventListener('click', () => startFase(2));
 const fase3Button = document.getElementById('fase3-button');
 fase3Button.addEventListener('click', () => startFase(3));
 
-function restart() {
-    if(faseCurrent === 1){
+function restart(faseNumber) {
+    if(faseNumber === 1){
         const dropArea = document.querySelector('.drop-area');
         dropArea.innerHTML = '';
     
@@ -157,15 +135,13 @@ function restart() {
     
         const imageContainer = document.querySelector('.image-container');
         imageContainer.classList.remove('selected');
-    
-        // Reiniciar a variável selectedButton
         selectedButton = null;
     
         // Reiniciar a variável imageCount
         imageCount = 0;
 
     }
-    else if(faseCurrent === 2){
+    else if(faseNumber === 2){
         const dropArea = document.querySelector('.drop-area2');
         dropArea.innerHTML = '';
     
@@ -181,7 +157,7 @@ function restart() {
         // Reiniciar a variável imageCount
         imageCount = 0;
     }
-    else if(faseCurrent === 3){
+    else if(faseNumber === 3){
         const dropArea = document.querySelector('.drop-area3');
         dropArea.innerHTML = '';
     
@@ -204,8 +180,7 @@ function nextPhases(faseNumber){
 
     const gameContainer = document.querySelector('.game-container');
     const gameContainer2 = document.querySelector('.game-container2');
-    const gameContainer3 = document.querySelector('.game-container3');
-    console.log(faseCurrent);
+    const gameContainer3 = document.querySelector('.game-container3');;
     if(faseNumber === 1){
         if(!isFaseStarted2){
             gameContainer.style.display = 'none';
@@ -226,13 +201,52 @@ function nextPhases(faseNumber){
             gameContainer2.style.display = 'none';
             gameContainer3.style.display = 'flex';
         }
-        
-     
     }
 }
 
+function modalErro(text){
+    Swal.fire({
+        iconColor: 'red',
+        icon: 'error',
+        text: text,
+        width: '500px',
+        background: 'rgb(27, 102, 27)',
+        color: 'white',
+        showConfirmButton: false,
+        showCloseButton: true,
+        customClass: {
+            popup: 'custom-swal2-modal'
+          }
+    })
+}
+
+function modalWin(text){
+    Swal.fire({
+        iconColor: 'rgb(10, 207, 10)',
+        icon: 'success',
+        text: text,
+        background: 'rgb(27, 102, 27)',
+        color: 'white',
+        width: '380px',
+        showConfirmButton: false,
+        showCloseButton: true
+    })
+}
+
+function modalInfo(){
+    const btnModal1 = document.querySelector('#btn-modal1');
+    const modal = document.querySelector('.homeScreen-container dialog');
+    const btnClose = document.querySelector('#btn-close');
+    modal.show()
+
+    btnClose.onclick = function (){
+        modal.close();
+    }
+}
+
+
 function stageStart1() {
-    faseCurrent = 1;
+    let selectedButton = null;
     let originalWord = 'CHAR';
     let shuffledWordTemp = 'HRCA'; // Embaralhamento inicial da palavra
   
@@ -274,8 +288,6 @@ function stageStart1() {
         }
     }
 
-  
-
     createWordButtons(shuffledWordTemp);
 
     let imageCount = 0;
@@ -299,14 +311,13 @@ function stageStart1() {
                 event.target.classList.contains("image-left") &&
                 selectedButtonIndex === 0 // Verifica se é a primeira letra
             ) {
-                alert("Não é possível mover a primeira letra para a esquerda.");
+                modalErro('NÃO É POSSÍVEL MOVER A PRIMEIRA LETRA PARA ESQUERDA');
                 event.preventDefault();
             } else if (
                 event.target.classList.contains("image-right") &&
                 selectedButtonIndex === lastIndex // Verifica se é a primeira letra
             ) {
-                alert("Não é possível mover a primeira letra para a direita.");
-                event.preventDefault();
+                modalErro('NÃO É POSSÍVEL MOVER A ÚLTIMA LETRA PARA DIREITA');
             } else {
                 event.dataTransfer.setData("text/plain", event.target.src);
                 event.dataTransfer.setData("text/custom", event.target.className);
@@ -328,7 +339,7 @@ function stageStart1() {
         }
 
         if (imageCount >= maxImages) {
-            alert("Limite de imagens atingido (5 imagens).");
+            modalErro('LIMITE MáxIMO DE 5 MOVIMENTOS ATINGIDO!');
             return;
         }
 
@@ -383,6 +394,28 @@ function stageStart1() {
             (event.target.classList.contains("image-left") ||
                 event.target.classList.contains("image-right"))
         ) {
+
+            const wordButtons = document.querySelectorAll('.word-button');
+            const selectedButtonIndex = Array.from(wordButtons).indexOf(selectedButton);
+            const lastIndex = wordButtons.length - 1;
+    
+            if (
+                event.target.classList.contains("image-left") &&
+                selectedButtonIndex === 0 // Verifica se é a primeira letra
+            ) {
+                modalErro('NÃO É POSSÍVEL MOVER A PRIMEIRA LETRA PARA ESQUERDA');
+                event.preventDefault();
+                return; // Impede o restante do código de ser executado
+            }else if(
+                event.target.classList.contains("image-right") &&
+                selectedButtonIndex === lastIndex // Verifica se é a primeira letra
+            ){
+                modalErro('NÃO É POSSÍVEL MOVER A ÚLTIMA LETRA PARA DIREITA');
+            }else {
+                event.dataTransfer.setData("text/plain", event.target.src);
+                event.dataTransfer.setData("text/custom", event.target.className);
+            }
+
             touchStartX = event.changedTouches[0].clientX;
             touchImageElement = event.target;
             event.preventDefault();
@@ -390,9 +423,6 @@ function stageStart1() {
             event.preventDefault();
         }
     }
-
-    
-    
 
     function touchEndHandler(event) {
         event.preventDefault();
@@ -402,14 +432,14 @@ function stageStart1() {
         }
 
         if (imageCount >= maxImages) {
-            alert("Limite de imagens atingido (5 imagens).");
+            modalErro('LIMITE MÁXIMO DE MOVIMENTOS ATINGIDO');
             return;
         }
 
         touchEndX = event.changedTouches[0].clientX;
 
         if (
-            Math.abs(touchEndX - touchStartX) > 50 // Defina um valor adequado para a sensibilidade do gesto de arrastar
+            Math.abs(touchEndX - touchStartX) > 50 
         ) {
             const imageUrl = event.target.src;
             const imgElement = document.createElement("img");
@@ -453,7 +483,7 @@ function stageStart1() {
         const shuffledRandom = randomWordElement.textContent;
 
         if (shuffledRandom === originalWord) {
-            alert('Parabéns! A palavra foi desembaralhada corretamente!');
+            modalWin('PARABÉNS, A PALAVRA FOI DESEMBARALHADA CORRETAMENTE! CLIQUE EM "PRÓXIMA FASE" PARA AVANÇAR DE FASE.');
             const nextPhase = document.querySelector('#next-phase');
             const statusFase2 = document.getElementById('fase2-button');
             const img2 = document.getElementById('img2');
@@ -462,17 +492,14 @@ function stageStart1() {
             statusFase2.style.cursor = 'pointer';
             nextPhase.style.display = 'flex';
         } else {
-            alert('Ops! A palavra não foi desembaralhada corretamente. Tente novamente.');
+            modalErro('PALAVRA DESEMBARALHADA INCORRETAMENTE! CLIQUE NO BOTÃO "RESTART" PARA REINICIAR A FASE.')
         }
     }
     function restartStage1(){
-        restart();
+        restart(1);
         const nextPhase = document.querySelector('#next-phase');
         nextPhase.style.display = 'none';
         imageCount = 0;
-         // Restaurar o estado do jogo da fase atual
-        
-       
         createWordButtons(shuffledWordTemp);
     }
 
@@ -490,15 +517,13 @@ function stageStart1() {
 
 
     const nextPhase = document.getElementById('next-phase');
-    nextPhase.addEventListener('click', () => nextPhases(1));
-
-    
+    nextPhase.addEventListener('click', () => nextPhases(1)); 
 }
 
 function stageStart2() {
-  
-    let originalWord = 'WHILE';
-    let shuffledWordTemp = 'LHIEW'; // Embaralhamento inicial da palavra
+    let selectedButton = null;
+    let originalWord = 'DICA';
+    let shuffledWordTemp = 'ICAD'; 
     isFaseStarted2 = true;
   
     function createWordButtons(shuffledWord) {
@@ -508,12 +533,10 @@ function stageStart2() {
         for (let i = 0; i < shuffledWord.length; i++) {
             const letter = shuffledWord[i];
             const button = document.createElement('button');
-            button.classList.add('word-button');
+            button.classList.add('word-button2');
             button.textContent = letter;
             button.addEventListener('click', () => selectButton(button));
             randomWordElement.appendChild(button);
-            
-            
         }
     }
 
@@ -544,7 +567,7 @@ function stageStart2() {
     createWordButtons(shuffledWordTemp);
 
     let imageCount = 0;
-    const maxImages = 5;
+    const maxImages = 4;
 
     function dragStartHandler(event) {
         if (!playClicked || !selectedButton) {
@@ -553,12 +576,12 @@ function stageStart2() {
         }
         if (
             selectedButton &&
-            (event.target.classList.contains("image-left2") ||
-                event.target.classList.contains("image-right2") ||
-                event.target.classList.contains("image-jump-right2") ||
-                event.target.classList.contains("image-jump-left2"))
+            (event.target.classList.contains('image-left2') ||
+                event.target.classList.contains('image-right2') ||
+                event.target.classList.contains('image-jump-right2') ||
+                event.target.classList.contains('image-jump-left2'))
         ) {
-            const wordButtons = document.querySelectorAll('.word-button');
+            const wordButtons = document.querySelectorAll('.word-button2');
             const selectedButtonIndex = Array.from(wordButtons).indexOf(selectedButton);
             const lastIndex = wordButtons.length - 1;
     
@@ -566,25 +589,25 @@ function stageStart2() {
                 event.target.classList.contains("image-left2") &&
                 selectedButtonIndex === 0 // Verifica se é a primeira letra
             ) {
-                alert("Não é possível mover a primeira letra para a esquerda.");
+                modalErro('NÃO É POSSÍVEL MOVER A PRIMEIRA LETRA PARA ESQUERDA');
                 event.preventDefault();
             } else if (
-                event.target.classList.contains("image-right2") &&
+                event.target.classList.contains('image-right2') &&
                 selectedButtonIndex === lastIndex // Verifica se é a primeira letra
             ) {
-                alert("Não é possível mover a primeira letra para a direita.");
+                modalErro('NÃO É POSSÍVEL MOVER A ÚLTIMA LETRA PARA DIREITA');
                 event.preventDefault();
             } else if (
                 event.target.classList.contains("image-jump-left2") &&
                 (selectedButtonIndex === 0 || selectedButtonIndex === 1) // Verifica se é a primeira ou a segunda letra
             ) {
-                alert("Não é possível mover a primeira ou a segunda letra para a esquerda.");
+                modalErro('NÃO É POSSÍVEL MOVER A SEGUNDA LETRA PARA ESQUERDA COM ESTE COMANDO');
                 event.preventDefault();
             } else if (
                 event.target.classList.contains("image-jump-right2") &&
                 (selectedButtonIndex === lastIndex - 1 || selectedButtonIndex === lastIndex) // Verifica se é a penúltima ou a última letra
             ) {
-                alert("Não é possível mover a penúltima ou a última letra para a direita.");
+                modalErro('NÃO É POSSÍVEL MOVER A PENÚLTIMA LETRA PARA A DIREITA COM ESTE COMANDO');
                 event.preventDefault();
             } else {
                 event.dataTransfer.setData("text/plain", event.target.src);
@@ -607,7 +630,7 @@ function stageStart2() {
         }
 
         if (imageCount >= maxImages) {
-            alert("Limite de imagens atingido (5 imagens).");
+            modalErro('LIMITE MÁXIMO DE 5 MOVIMENTOS ATINGIDO.');
             return;
         }
 
@@ -660,12 +683,14 @@ function stageStart2() {
     imageJumpRight2.addEventListener('dragstart', dragStartHandler);
     imageJumpLeft2.addEventListener('dragstart', dragStartHandler);
 
+
+
 function verifyWord2() {
     const randomWordElement = document.getElementById('random-word2');
     const shuffledRandom = randomWordElement.textContent;
 
     if (shuffledRandom === originalWord) {
-        alert('Parabéns! A palavra foi desembaralhada corretamente!');
+        modalWin('PARABÉNS, A PALAVRA FOI DESEMBARALHADA CORRETAMENTE. CLIQUE NO BOTÃO "PRÓXIMA FASE" PARA AVANÇAR DE FASE.');
             const nextPhase = document.getElementById('next-phase2');
             const statusFase3 = document.getElementById('fase3-button')
             const img3 = document.getElementById('img3');
@@ -676,17 +701,15 @@ function verifyWord2() {
             statusFase3.style.cursor = 'pointer';
 
     } else {
-        alert('Ops! A palavra não foi desembaralhada corretamente. Tente novamente.');
-    }
+        modalErro('PALAVRA DESEMBARALHADA INCORRETAMENTE. CLIQUE NO BOTÃO "RESTART" PARA REINICIAR A FASE.')
+        }
     }
 
     function restartStage2(){
-        restart();
+        restart(2);
         imageCount = 0;
         createWordButtons(shuffledWordTemp);
     }
-
-    faseCurrent = 2;
     const verifyButton = document.getElementById('verify-button2');
     verifyButton.addEventListener('click', verifyWord2);
 
@@ -698,18 +721,14 @@ function verifyWord2() {
 
     const nextPhase = document.getElementById('next-phase2');
     nextPhase.addEventListener('click', () => nextPhases(2));
-
-
 }
 
 function stageStart3() {
-   
-    let originalWord = 'VETOR';
-    let shuffledWordTemp = 'RTVEO'; // Embaralhamento inicial da palavra
+    let selectedButton = null;
+    let originalWord = 'WHILE';
+    let shuffledWordTemp = 'HEIWL'; //IHEWL
     isFaseStarted3 = true;
-    faseCurrent = 3;
 
-  
     function createWordButtons(shuffledWord) {
         const randomWordElement = document.getElementById('random-word3');
         randomWordElement.innerHTML = '';
@@ -717,7 +736,7 @@ function stageStart3() {
         for (let i = 0; i < shuffledWord.length; i++) {
             const letter = shuffledWord[i];
             const button = document.createElement('button');
-            button.classList.add('word-button');
+            button.classList.add('word-button3');
             button.textContent = letter;
             button.addEventListener('click', () => selectButton(button));
             randomWordElement.appendChild(button);
@@ -752,7 +771,7 @@ function stageStart3() {
     createWordButtons(shuffledWordTemp);
 
     let imageCount = 0;
-    const maxImages = 5;
+    const maxImages = 10;
 
     function dragStartHandler(event) {
         if (!playClicked || !selectedButton) {
@@ -764,19 +783,19 @@ function stageStart3() {
             (event.target.classList.contains("image-jump-right3") ||
                 event.target.classList.contains("image-jump-left3"))
         ) {
-            const wordButtons = document.querySelectorAll('.word-button');
+            const wordButtons = document.querySelectorAll('.word-button3');
             const selectedButtonIndex = Array.from(wordButtons).indexOf(selectedButton);
             const lastIndex = wordButtons.length - 1;
     
             if (event.target.classList.contains("image-jump-left3") &&
-                (selectedButtonIndex === 0 || selectedButtonIndex === 1) // Verifica se é a primeira ou a segunda letra
+                (selectedButtonIndex === 0 || selectedButtonIndex === 1)
             ) {
-                alert("Não é possível mover a primeira ou a segunda letra para a esquerda.");
+                modalErro('NÃO É POSSÍVEL MOVER A PRIMEIRA OU PENÚLTIMA LETRA PARA ESQUERDA COM ESTE COMANDO');
                 event.preventDefault();
             } else if (event.target.classList.contains("image-jump-right3") &&
-                (selectedButtonIndex === lastIndex - 1 || selectedButtonIndex === lastIndex) // Verifica se é a penúltima ou a última letra
+                (selectedButtonIndex === lastIndex - 1 || selectedButtonIndex === lastIndex)
             ) {
-                alert("Não é possível mover a penúltima ou a última letra para a direita.");
+                modalErro('NÃO É POSSÍVEL MOVER A PRIMEIRA OU PENÚLTIMA LETRA PARA DIREITA COM ESTE COMANDO');
                 event.preventDefault();
             } else {
                 event.dataTransfer.setData("text/plain", event.target.src);
@@ -798,10 +817,9 @@ function stageStart3() {
         }
 
         if (imageCount >= maxImages) {
-            alert("Limite de imagens atingido (5 imagens).");
+            alert("LIMITE MÁXIMO DE 5 MOVIMENTOS ATINGIDOS");
             return;
         }
-
         if (event.target.className === "drop-area3" && event.dataTransfer.types.includes("text/plain")) {
             const imageUrl = event.dataTransfer.getData("text");
             const imgElement = document.createElement("img");
@@ -809,7 +827,6 @@ function stageStart3() {
             imgElement.className = "image";
             imgElement.draggable = false;
             event.target.appendChild(imgElement);
-
             const customData = event.dataTransfer.getData("text/custom");
             if (customData === "image-jump-right3" && selectedButton.nextElementSibling.nextElementSibling) {
                 selectedButton.parentElement.insertBefore(
@@ -822,7 +839,6 @@ function stageStart3() {
                     selectedButton.previousElementSibling.previousElementSibling
                 );
             }
-
             imageCount++;
         }
     }
@@ -841,22 +857,19 @@ function stageStart3() {
         const shuffledRandom = randomWordElement.textContent;
     
         if (shuffledRandom === originalWord) {
-            alert('Parabéns! A palavra foi desembaralhada corretamente! VOCÊ CONCLUIU AS TRÊS FASES');
+            modalWin('PARABÉNS! A palavra foi desembaralhada corretamente! VOCÊ CONCLUIU AS TRÊS FASES');
             const btnRestartGame = document.getElementById('restartAPP');
             btnRestartGame.style.display = 'flex';
             btnRestartGame.addEventListener('click', restartApplication);
     
         } else {
-            alert('Ops! A palavra não foi desembaralhada corretamente. Tente novamente.');
+            modalErro('PALAVRA DESEBARALHADA INCORRETAMENTE. CLIQUE NO BOTÃO "RESTART" PARA REINICIAR A FASE.')
         }
     }
 
     function restartStage3(){
-        restart();
+        restart(3);
         imageCount = 0;
-         // Restaurar o estado do jogo da fase atual
-        
-       
         createWordButtons(shuffledWordTemp);
     }
     

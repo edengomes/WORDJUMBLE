@@ -7,21 +7,37 @@
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@700&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@700&display=swap" rel="stylesheet"/>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </head>
   <body>
     <div class="container">
       <div class="homeScreen-container">
         <div class="modal-homeScreen">
-          <button id="btn-modal1">?</button>
+          <button id="btn-modal1" onclick="modalInfo()">Tutorial</button>
         </div>
         <div class="box-modal">
           <dialog>
-            <h2>INFO</h2>
-            <p>SEJA BEM VINDO AO WORD JUMBLE</p>
+            <h2>COMO JOGAR </h2>
+            <h3>O jogo "WORD JUMBLE" apresenta um desafio aos jogadores: desembaralhar palavras pré-definidas em cada fase. Esse processo requer a seleção de uma letra por vez (clicando) e, em seguida, o arraste na direção correta através do comando de direção.
+            </h3>
+            <hr>
+            <p>Neste exemplo, observe que a palavra pré-definida é "DICA", sendo a letra "D" a escolhida. </p>
+            <img src="./imgs/dica1.png" alt="dica1" style="max-width: 30%; max-height: 40%;">
+            <hr>
+            <p>Observe que a letra "D" foi movida através do comando de direção para esquerda</p>
+            <img src="./imgs/dica2.png" alt="dica2" style="max-width: 30%; max-height: 40%;">
+            <hr>
+            <p>Observe que a letra "D" foi movida duas letras a esquerda, através do comando pular para esquerda</p>
+            <img src="./imgs/dica3.png" alt="dica3" style="max-width: 30%; max-height: 40%;">
+            <hr>
+            <p>Ao clicar no botão "VERIFICAR", será feita a verificação se a palavra foi desembaralhad corretamente</p>
+            <hr>
+            <img src="./imgs/dica4.png" alt="dica4" style="max-width: 30%; max-height: 40%;">
+            <hr>
+            <p>E por último, a mensagem informando o resultado da verificação</p>
+            <img src="./imgs/dica5.png" alt="dica5" style="max-width: 50%; max-height: 50%;">
+            <hr>
             <button id="btn-close">Fechar</button>
           </dialog>
         </div>
@@ -55,11 +71,9 @@
         <div class="btn-back">
           <button id="back-to-fase">Voltar</button>
         </div>
-        <div class="drop-area">
-          </div>
-
+        <div class="word-container">CHAR</div>
+        <div class="drop-area"></div>
         <div class="image-container">
-          <!-- Imagens que podem ser arrastadas -->
           <img class="image-left" src="./imgs/seta-left.png" draggable="true" />
           <img class="image-right"src="./imgs/seta-right.png"draggable="true"/>
         </div>
@@ -78,10 +92,8 @@
         <div class="btn-back">
           <button id="back-to-fase2">Voltar</button>
         </div>
-        <div class="drop-area2">
-          <!-- A área de soltar imagens está vazia -->
-        </div>
-
+        <div class="word-container2">DICA</div>
+        <div class="drop-area2"></div>
         <div class="image-container2">
           <img
             class="image-jump-left2"src="./imgs/seta-jump-left.png" draggable="true"/>
@@ -105,8 +117,8 @@
       </div>
       <div class="game-container3" style="display: none">
         <div class="btn-back">
-          <button id="back-to-fase3">Voltar</button>
-        </div>
+          <button id="back-to-fase3">Voltar</button></div>
+        <div class="word-container2">WHILE</div>
         <div class="drop-area3">
           <!-- A área de soltar imagens está vazia -->
         </div>
