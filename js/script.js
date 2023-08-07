@@ -135,9 +135,8 @@ function restart(faseNumber) {
     
         const imageContainer = document.querySelector('.image-container');
         imageContainer.classList.remove('selected');
-        selectedButton = null;
-    
-        // Reiniciar a variável imageCount
+        
+      
         imageCount = 0;
 
     }
@@ -151,10 +150,6 @@ function restart(faseNumber) {
         const imageContainer = document.querySelector('.image-container2');
         imageContainer.classList.remove('selected');
     
-        // Reiniciar a variável selectedButton
-        selectedButton = null;
-    
-        // Reiniciar a variável imageCount
         imageCount = 0;
     }
     else if(faseNumber === 3){
@@ -167,10 +162,6 @@ function restart(faseNumber) {
         const imageContainer = document.querySelector('.image-container3');
         imageContainer.classList.remove('selected');
     
-        // Reiniciar a variável selectedButton
-        selectedButton = null;
-    
-        // Reiniciar a variável imageCount
         imageCount = 0;
    
     }
@@ -248,7 +239,7 @@ function modalInfo(){
 function stageStart1() {
     let selectedButton = null;
     let originalWord = 'LISTA';
-    let shuffledWordTemp = 'TLAIS'; // Embaralhamento inicial da palavra
+    let shuffledWordTemp = 'SALIT'; // Embaralhamento inicial da palavra
   
     function createWordButtons(shuffledWord) {
         const randomWordElement = document.getElementById('random-word');
@@ -295,6 +286,7 @@ function stageStart1() {
 
     function dragStartHandler(event) {
         if (!playClicked || !selectedButton) {
+            modalErro('SELECIONE UMA LETRA PARA PODER ARRASTAR A IMAGEM');
             event.preventDefault();
             return;
         }
@@ -457,10 +449,10 @@ function stageStart1() {
     
             imageCount++;
         }
-        if (touchImageElement) {
-            touchImageElement.style.transform = ""; // Remove a translação da imagem
-            touchImageElement = null;
-        }
+        // if (touchImageElement) {
+        //     touchImageElement.style.transform = ""; // Remove a translação da imagem
+        //     touchImageElement = null;
+        // }
     }
     
     imageLeft.addEventListener('touchstart', touchStartHandler);
@@ -489,7 +481,7 @@ function stageStart1() {
     }
     function restartStage1(){
         restart(1);
-        const nextPhase = document.querySelector('#next-phase');
+        selectedButton = null;
         imageCount = 0;
         createWordButtons(shuffledWordTemp);
     }
@@ -513,8 +505,8 @@ function stageStart1() {
 
 function stageStart2() {
     let selectedButton = null;
-    let originalWord = 'PILHA';
-    let shuffledWordTemp = 'HIAPL'; 
+    let originalWord = 'WHILE';
+    let shuffledWordTemp = 'IHEWL'; 
     isFaseStarted2 = true;
   
     function createWordButtons(shuffledWord) {
@@ -562,6 +554,7 @@ function stageStart2() {
 
     function dragStartHandler(event) {
         if (!playClicked || !selectedButton) {
+            modalErro('SELECIONE UMA LETRA PARA PODER ARRASTAR A IMAGEM');
             event.preventDefault();
             return;
         }
@@ -821,6 +814,7 @@ function verifyWord2() {
     function restartStage2(){
         restart(2);
         imageCount = 0;
+        selectedButton = null;
         createWordButtons(shuffledWordTemp);
     }
     const verifyButton = document.getElementById('verify-button2');
@@ -838,8 +832,8 @@ function verifyWord2() {
 
 function stageStart3() {
     let selectedButton = null;
-    let originalWord = 'WHILE';
-    let shuffledWordTemp = 'HEILW'; //IHEWL
+    let originalWord = 'PILHA';
+    let shuffledWordTemp = 'HIAPL'; 
     isFaseStarted3 = true;
 
     function createWordButtons(shuffledWord) {
@@ -853,8 +847,6 @@ function stageStart3() {
             button.textContent = letter;
             button.addEventListener('click', () => selectButton(button));
             randomWordElement.appendChild(button);
-            
-            
         }
     }
     function selectButton(button) {
@@ -888,6 +880,7 @@ function stageStart3() {
 
     function dragStartHandler(event) {
         if (!playClicked || !selectedButton) {
+            modalErro('SELECIONE UMA LETRA PARA PODER ARRASTAR A IMAGEM');
             event.preventDefault();
             return;
         }
@@ -940,6 +933,7 @@ function stageStart3() {
             imgElement.className = "image";
             imgElement.draggable = false;
             event.target.appendChild(imgElement);
+
             const customData = event.dataTransfer.getData("text/custom");
             if (customData === "image-jump-right3" && selectedButton.nextElementSibling.nextElementSibling) {
                 selectedButton.parentElement.insertBefore(
@@ -1076,6 +1070,7 @@ function stageStart3() {
     function restartStage3(){
         restart(3);
         imageCount = 0;
+        selectedButton = null;
         createWordButtons(shuffledWordTemp);
     }
     
