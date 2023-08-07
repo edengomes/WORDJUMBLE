@@ -55,24 +55,25 @@ body{
   justify-content: right;
 }
 
-#btn-modal1{
-  width: 40px;
-  height: 40px;
-  font-size: 2.3em;
-  border-radius: 5px;
-  background-color: rgb(27, 102, 27);
-  color: white;
-  margin-top: -8vh;
-  margin-bottom: 5vh;
-  justify-content: right;
+.homeScreen-container #btn-modal1{
+  width: 120px;
+  margin-top: -12%;
+  height: 50px;
+  justify-content: center;
+  align-items: center;
+  background-color:#FFCC00;
+  color: #FFFFFF;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 12px 24px;
+  border-radius: 10px; /* Bordas arredondadas */
   cursor: pointer;
-  border: 1.5px solid white;
+  box-shadow: 0px 5px 10px white; 
 }
 
-
 .box-modal dialog{
-  width: 800px;
-  height: 95%;
+  width: 700px;
+  height: 90%;
   background-color:white;
   border: 5px solid hsl(0, 60%, 23%);
   border-radius: 4px;
@@ -80,22 +81,23 @@ body{
   margin: auto;
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
-  position: absolute;
-  margin-top: -18%;
-  overflow-y: auto;
+  margin-top: -16%;
+
+  overflow: auto;
+
   
 }
 .box-modal dialog h2{
   margin: auto;
   text-align: center;
-  color:  rgb(27, 102, 27);;
+  color: rgb(27, 102, 27);;
 }
 .box-modal button{
   width: 60px;
   height: 25px;
   border-radius: 5px;
   background-color: rgb(27, 102, 27);
-  margin-top: 5%;
+  margin-top: 2%;
   margin-bottom: 2%;
   font-size: 1em;
   color: white;
@@ -104,11 +106,16 @@ body{
 
 .box-modal p{
   margin: 10px;
+  text-align: justify;
 }
 .box-modal img{
   margin: 10px;
 }
-
+.box-modal h3{
+  margin: 10px;
+  text-align: justify;
+  color: rgb(27, 102, 27);;
+}
 .menu-container{
   width: 60vw;
   height: 60vh;
@@ -214,7 +221,7 @@ body{
   justify-content: center;
   gap: 5px;
 }
-  
+
 .word-list-container h2 {
   justify-content: center;
   align-items: center;
@@ -238,39 +245,43 @@ h2{
   width: 29vw;
   color: white; /* Cor branca do giz */
   border-bottom: 4px solid white; /* Borda do giz */
-  
-  
+
 }
 
 #play-button {
+  width: 120px;
+  height: 50px;
+  font-weight: bold;
+  color: white;
+  font-size: 2em;
   display: inline-block;
-  border: 5px solid white; /* Cor da borda do botão */
-  border-radius: 50%; /* Bordas arredondadas do botão */
-  padding: 15px; /* Espaçamento interno para dar espaço à imagem */
-  background-color: rgb(27, 102, 27);; /* Cor de fundo do botão */
+  border: 4px solid white;
+  font-family: 'Cabin Sketch', cursive;
+  border-radius: 50px;
+  background-color: rgb(27, 102, 27);; 
   cursor: pointer; 
 }
 
-#play-button img{
+/* #play-button img{
   display: block;
-  max-width: 100%; /* A imagem não ultrapassa a largura do botão */
-  max-height: 100%; /* A imagem não ultrapassa a altura do botão */
+  max-width: 200px; 
+  max-height: 200%; 
   margin: 0 auto;
-}
+} */
 
 #fase1-button {
   display: inline-block;
-  border: 3px solid white; /* Cor da borda do botão */
-  padding: 15px; /* Espaçamento interno para dar espaço à imagem */
+  border: 3px solid white; 
+  padding: 15px;
   width: 100px;
-  background-color: rgb(27, 102, 27);; /* Cor de fundo do botão */
+  background-color: rgb(27, 102, 27);; 
   cursor: pointer;
   border-radius:10px;
 }
 #fase1-button img{
   display: block;
-  max-width: 100%; /* A imagem não ultrapassa a largura do botão */
-  max-height: 100%; /* A imagem não ultrapassa a altura do botão */
+  max-width: 100%;
+  max-height: 100%; 
   margin: 0 auto;
 }
 
@@ -509,6 +520,21 @@ h2{
 
 
 @media (min-width:320px) and (max-width:430px){
+  .box-modal dialog{
+    width: 310px;
+    height: 700px;
+    margin-top: -70%;
+  }
+
+  .box-modal h2{
+    font-size: 1em;
+  }
+  .box-modal h3{
+    font-size: 0.9em;
+  }
+  .box-modal p{
+    font-size: 0.8em;
+  }
   .container{
     width: 100vw;
   }
@@ -523,9 +549,20 @@ h2{
   font-size: 2em;
   margin-top: 10px;
  }
+ .homeScreen-container #btn-modal1{
+  width: 90px;
+  margin-top: -18%;
+  height: 40px;
+  font-size: 12px;
+}
+
  #play-button {
-    width: 50px;
-    border: 2px solid white; /* Cor da borda do botão */
+  width: 70px;
+  height: 30px;
+  font-weight: bold;
+  color: white;
+  font-size: 1.2em;
+  border: 2px solid white
    
   } 
   #btn-modal1{
@@ -615,7 +652,7 @@ h2{
     }
   .game-container2 {
     width: 100%;
-    height: 68%;
+    height: 80%;
     border: 8px solid rgba(165, 42, 42, 0.616);
   }
   .game-container2 button{
@@ -625,7 +662,7 @@ h2{
       margin-top: 10px;
   }
   .drop-area2 {
-    width: 98%; /* Aumentar a largura para 300px */
+    width: 98%; 
     height: 100px;  
     border: 5px solid rgba(165, 42, 42, 0.616);
   }
@@ -643,7 +680,7 @@ h2{
 
   .game-container3 {
     width: 100%;
-    height: 68%;
+    height: 80%;
     border: 8px solid rgba(165, 42, 42, 0.616);
   }
   .game-container3 button{
@@ -653,7 +690,7 @@ h2{
       margin-top: 10px;
   }
   .drop-area3 {
-    width: 98%; /* Aumentar a largura para 300px */
+    width: 98%;
     height: 100px;  
     border: 5px solid rgba(165, 42, 42, 0.616);
   }
@@ -664,7 +701,18 @@ h2{
     gap: 3px;
   }
     
-  
+  .image-container img{
+    width: 50px;
+    height: 50px;
+  }
+  .image-container2 img{
+    width: 50px;
+    height: 50px;
+  }
+  .image-container3 img{
+    width: 50px;
+    height: 50px;
+  }
   .word-list-container3 h2{
     width: 100%;
     font-size: 1.7em;
@@ -679,6 +727,28 @@ h2{
 }
 
 @media (min-width: 1600px){
+
+  .box-modal dialog{
+    width: 1200px;
+    height:800px;
+    margin-top: -20%;
+  }
+
+  .box-modal h2{
+    font-size: 3em;
+  }
+  .box-modal h3{
+    font-size: 2.5em;
+  }
+  .box-modal p{
+    font-size: 2.1em;
+  }
+  .box-modal button{
+    width: 100px;
+    height: 40px;
+    font-size: 1.5em;
+  }
+
   .container{
     width: 100vw;
   }
@@ -696,8 +766,18 @@ h2{
   font-size: 8em;
   margin-top: -20px;
  }
+ .homeScreen-container #btn-modal1{
+  width: 200px;
+  height: 80px;
+  margin-top: -5%;;
+  font-size: 2.5em;
+  margin-bottom: 30px;
+ 
+}
  #play-button {
-    width: 100px;
+    width: 180px;
+    height: 80px;
+    font-size: 3em;
     border: 2px solid white; /* Cor da borda do botão */
    
   } 
