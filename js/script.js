@@ -513,8 +513,8 @@ function stageStart1() {
 
 function stageStart2() {
     let selectedButton = null;
-    let originalWord = 'LISTA';
-    let shuffledWordTemp = 'TLASI'; 
+    let originalWord = 'PILHA';
+    let shuffledWordTemp = 'HIAPL'; 
     isFaseStarted2 = true;
   
     function createWordButtons(shuffledWord) {
@@ -839,7 +839,7 @@ function verifyWord2() {
 function stageStart3() {
     let selectedButton = null;
     let originalWord = 'WHILE';
-    let shuffledWordTemp = 'HEIWL'; //IHEWL
+    let shuffledWordTemp = 'HEILW'; //IHEWL
     isFaseStarted3 = true;
 
     function createWordButtons(shuffledWord) {
