@@ -235,7 +235,7 @@ function modalWin(text){
 
 function modalInfo(){
     const btnModal1 = document.querySelector('#btn-modal1');
-    const modal = document.querySelector('.homeScreen-container dialog');
+    const modal = document.querySelector('.homeScreen-container dialog').scrollTop = 100;
     const btnClose = document.querySelector('#btn-close');
     modal.show()
 
@@ -247,8 +247,8 @@ function modalInfo(){
 
 function stageStart1() {
     let selectedButton = null;
-    let originalWord = 'CHAR';
-    let shuffledWordTemp = 'HRCA'; // Embaralhamento inicial da palavra
+    let originalWord = 'LISTA';
+    let shuffledWordTemp = 'TLAIS'; // Embaralhamento inicial da palavra
   
     function createWordButtons(shuffledWord) {
         const randomWordElement = document.getElementById('random-word');
@@ -367,9 +367,6 @@ function stageStart1() {
             imageCount++;
         }
     }
-
-    
-
     const dropArea = document.querySelector('.drop-area');
     dropArea.addEventListener('dragover', dragOverHandler);
     dropArea.addEventListener('drop', dropHandler);
@@ -394,28 +391,26 @@ function stageStart1() {
             (event.target.classList.contains("image-left") ||
                 event.target.classList.contains("image-right"))
         ) {
-
             const wordButtons = document.querySelectorAll('.word-button');
             const selectedButtonIndex = Array.from(wordButtons).indexOf(selectedButton);
             const lastIndex = wordButtons.length - 1;
     
             if (
                 event.target.classList.contains("image-left") &&
-                selectedButtonIndex === 0 // Verifica se é a primeira letra
+                selectedButtonIndex === 0
             ) {
                 modalErro('NÃO É POSSÍVEL MOVER A PRIMEIRA LETRA PARA ESQUERDA');
                 event.preventDefault();
-                return; // Impede o restante do código de ser executado
-            }else if(
+                return;
+            } else if (
                 event.target.classList.contains("image-right") &&
-                selectedButtonIndex === lastIndex // Verifica se é a primeira letra
-            ){
+                selectedButtonIndex === lastIndex
+            ) {
                 modalErro('NÃO É POSSÍVEL MOVER A ÚLTIMA LETRA PARA DIREITA');
-            }else {
-                event.dataTransfer.setData("text/plain", event.target.src);
-                event.dataTransfer.setData("text/custom", event.target.className);
+                event.preventDefault();
+                return;
             }
-
+    
             touchStartX = event.changedTouches[0].clientX;
             touchImageElement = event.target;
             event.preventDefault();
@@ -423,33 +418,31 @@ function stageStart1() {
             event.preventDefault();
         }
     }
-
+    
     function touchEndHandler(event) {
         event.preventDefault();
-
+    
         if (!selectedButton) {
             return;
         }
-
+    
         if (imageCount >= maxImages) {
             modalErro('LIMITE MÁXIMO DE MOVIMENTOS ATINGIDO');
             return;
         }
-
+    
         touchEndX = event.changedTouches[0].clientX;
-
-        if (
-            Math.abs(touchEndX - touchStartX) > 50 
-        ) {
-            const imageUrl = event.target.src;
+    
+        if (Math.abs(touchEndX - touchStartX) > 50) {
+            const imageUrl = touchImageElement.src; 
             const imgElement = document.createElement("img");
             imgElement.src = imageUrl;
             imgElement.className = "image";
             imgElement.draggable = false;
             const dropArea = document.querySelector('.drop-area');
             dropArea.appendChild(imgElement);
-
-            const customData = event.target.className;
+    
+            const customData = touchImageElement.className; 
             if (customData === "image-left" && selectedButton.previousElementSibling) {
                 selectedButton.parentElement.insertBefore(
                     selectedButton,
@@ -461,16 +454,15 @@ function stageStart1() {
                     selectedButton.nextElementSibling.nextElementSibling
                 )
             }
-
+    
             imageCount++;
         }
         if (touchImageElement) {
-        touchImageElement.style.transform = ""; // Remove a translação da imagem
-        touchImageElement = null;
+            touchImageElement.style.transform = ""; // Remove a translação da imagem
+            touchImageElement = null;
+        }
     }
-    }
-
-
+    
     imageLeft.addEventListener('touchstart', touchStartHandler);
     imageRight.addEventListener('touchstart', touchStartHandler);
 
@@ -498,7 +490,6 @@ function stageStart1() {
     function restartStage1(){
         restart(1);
         const nextPhase = document.querySelector('#next-phase');
-        nextPhase.style.display = 'none';
         imageCount = 0;
         createWordButtons(shuffledWordTemp);
     }
@@ -522,8 +513,8 @@ function stageStart1() {
 
 function stageStart2() {
     let selectedButton = null;
-    let originalWord = 'DICA';
-    let shuffledWordTemp = 'ICAD'; 
+    let originalWord = 'LISTA';
+    let shuffledWordTemp = 'TLASI'; 
     isFaseStarted2 = true;
   
     function createWordButtons(shuffledWord) {
@@ -591,24 +582,28 @@ function stageStart2() {
             ) {
                 modalErro('NÃO É POSSÍVEL MOVER A PRIMEIRA LETRA PARA ESQUERDA');
                 event.preventDefault();
+                return;
             } else if (
                 event.target.classList.contains('image-right2') &&
                 selectedButtonIndex === lastIndex // Verifica se é a primeira letra
             ) {
                 modalErro('NÃO É POSSÍVEL MOVER A ÚLTIMA LETRA PARA DIREITA');
                 event.preventDefault();
+                return;
             } else if (
                 event.target.classList.contains("image-jump-left2") &&
                 (selectedButtonIndex === 0 || selectedButtonIndex === 1) // Verifica se é a primeira ou a segunda letra
             ) {
                 modalErro('NÃO É POSSÍVEL MOVER A SEGUNDA LETRA PARA ESQUERDA COM ESTE COMANDO');
                 event.preventDefault();
+                return;
             } else if (
                 event.target.classList.contains("image-jump-right2") &&
                 (selectedButtonIndex === lastIndex - 1 || selectedButtonIndex === lastIndex) // Verifica se é a penúltima ou a última letra
             ) {
                 modalErro('NÃO É POSSÍVEL MOVER A PENÚLTIMA LETRA PARA A DIREITA COM ESTE COMANDO');
                 event.preventDefault();
+                return;
             } else {
                 event.dataTransfer.setData("text/plain", event.target.src);
                 event.dataTransfer.setData("text/custom", event.target.className);
@@ -630,7 +625,7 @@ function stageStart2() {
         }
 
         if (imageCount >= maxImages) {
-            modalErro('LIMITE MÁXIMO DE 5 MOVIMENTOS ATINGIDO.');
+            modalErro('LIMITE MÁXIMO DE 4 MOVIMENTOS ATINGIDO.');
             return;
         }
 
@@ -668,10 +663,120 @@ function stageStart2() {
             imageCount++;
         }
     }
+    let touchStartX, touchEndX;
+    let touchImageElement = null;
+    
+    function touchStartHandler(event) {
+        if (!playClicked || !selectedButton) {
+            event.preventDefault();
+            return;
+        }
+        
+        if (
+            selectedButton &&
+            (event.target.classList.contains('image-left2') ||
+                event.target.classList.contains('image-right2') ||
+                event.target.classList.contains('image-jump-right2') ||
+                event.target.classList.contains('image-jump-left2'))
+        ) {
+            const wordButtons = document.querySelectorAll('.word-button2');
+            const selectedButtonIndex = Array.from(wordButtons).indexOf(selectedButton);
+            const lastIndex = wordButtons.length - 1;
+    
+            if (
+                event.target.classList.contains("image-left2") &&
+                selectedButtonIndex === 0
+            ) {
+                modalErro('NÃO É POSSÍVEL MOVER A PRIMEIRA LETRA PARA ESQUERDA');
+                event.preventDefault(); 
+                return;
+            } else if (
+                event.target.classList.contains("image-right2") && selectedButtonIndex === lastIndex
+            ) {
+                modalErro('NÃO É POSSÍVEL MOVER A ÚLTIMA LETRA PARA DIREITA');
+                event.preventDefault();
+                return;
+            } else if (
+                event.target.classList.contains("image-jump-left2") &&
+                (selectedButtonIndex === 0 || selectedButtonIndex === 1)
+            ) {
+                modalErro('NÃO É POSSÍVEL MOVER A SEGUNDA LETRA PARA ESQUERDA COM ESTE COMANDO');
+                event.preventDefault();
+            } else if (
+                event.target.classList.contains("image-jump-right2") &&
+                (selectedButtonIndex === lastIndex - 1 || selectedButtonIndex === lastIndex) 
+            ) {
+                modalErro('NÃO É POSSÍVEL MOVER A PENÚLTIMA LETRA PARA A DIREITA COM ESTE COMANDO');
+                event.preventDefault();
+            }
+    
+            touchStartX = event.changedTouches[0].clientX;
+            touchImageElement = event.target;
+            event.preventDefault();
+        } else {
+            event.preventDefault();
+        }
+    }
+    
+    function touchEndHandler(event) {
+        event.preventDefault();
+    
+        if (!selectedButton) {
+            return;
+        }
+    
+        if (imageCount >= maxImages) {
+            modalErro('LIMITE MÁXIMO DE 3 MOVIMENTOS ATINGIDO.');
+            return;
+        }
+    
+        touchEndX = event.changedTouches[0].clientX;
+    
+        if (Math.abs(touchEndX - touchStartX) > 50) {
+            const imageUrl = touchImageElement.src;
+            const imgElement = document.createElement("img");
+            imgElement.src = imageUrl;
+            imgElement.className = "image";
+            imgElement.draggable = false;
+            const dropArea2 = document.querySelector('.drop-area2');
+            dropArea2.appendChild(imgElement);
+    
+            const customData = touchImageElement.className;
+            if (customData === "image-left2" && selectedButton.previousElementSibling) {
+                selectedButton.parentElement.insertBefore(
+                    selectedButton,
+                    selectedButton.previousElementSibling
+                );
+            } else if (customData === "image-right2" && selectedButton.nextElementSibling) {
+                selectedButton.parentElement.insertBefore(
+                    selectedButton,
+                    selectedButton.nextElementSibling.nextElementSibling
+                );
+            } else if (customData === "image-jump-right2" && selectedButton.nextElementSibling.nextElementSibling) {
+                selectedButton.parentElement.insertBefore(
+                    selectedButton,
+                    selectedButton.nextElementSibling.nextElementSibling.nextElementSibling
+                );
+            } else if (customData === "image-jump-left2" && selectedButton.previousElementSibling) {
+                selectedButton.parentElement.insertBefore(
+                    selectedButton,
+                    selectedButton.previousElementSibling.previousElementSibling
+                );
+            }
+    
+            imageCount++;
+        }
+        
+        if (touchImageElement) {
+            touchImageElement.style.transform = ""; // Remove a translação da imagem
+            touchImageElement = null;
+        }
+    }
 
     const dropArea2 = document.querySelector('.drop-area2');
     dropArea2.addEventListener('dragover', dragOverHandler);
     dropArea2.addEventListener('drop', dropHandler);
+    
 
     const imageLeft2 = document.querySelector('.image-left2');
     const imageRight2 = document.querySelector('.image-right2')
@@ -682,8 +787,16 @@ function stageStart2() {
     imageRight2.addEventListener('dragstart', dragStartHandler);
     imageJumpRight2.addEventListener('dragstart', dragStartHandler);
     imageJumpLeft2.addEventListener('dragstart', dragStartHandler);
+    
+    imageLeft2.addEventListener('touchstart', touchStartHandler);
+    imageRight2.addEventListener('touchstart', touchStartHandler);
+    imageJumpRight2.addEventListener('touchstart', touchStartHandler);
+    imageJumpLeft2.addEventListener('touchstart', touchStartHandler);
 
-
+    imageLeft2.addEventListener('touchend', touchEndHandler);
+    imageRight2.addEventListener('touchend', touchEndHandler);
+    imageJumpRight2.addEventListener('touchend', touchEndHandler);
+    imageJumpLeft2.addEventListener('touchend', touchEndHandler);
 
 function verifyWord2() {
     const randomWordElement = document.getElementById('random-word2');
@@ -842,15 +955,108 @@ function stageStart3() {
             imageCount++;
         }
     }
+
+    let touchStartX, touchEndX;
+    let touchImageElement = null;
+    
+    function touchStartHandler(event) {
+        if (!playClicked || !selectedButton) {
+            event.preventDefault();
+            return;
+        }
+        if (
+            selectedButton &&
+            (event.target.classList.contains('image-jump-right3') ||
+                event.target.classList.contains('image-jump-left3'))
+        ) {
+            const wordButtons = document.querySelectorAll('.word-button3');
+            const selectedButtonIndex = Array.from(wordButtons).indexOf(selectedButton);
+            const lastIndex = wordButtons.length - 1;
+            if (
+                event.target.classList.contains("image-jump-left3") &&
+                (selectedButtonIndex === 0 || selectedButtonIndex === 1)
+            ) {
+                modalErro('NÃO É POSSÍVEL MOVER A SEGUNDA LETRA PARA ESQUERDA COM ESTE COMANDO');
+                event.preventDefault();
+                return;
+            } else if (
+                event.target.classList.contains("image-jump-right3") &&
+                (selectedButtonIndex === lastIndex - 1 || selectedButtonIndex === lastIndex) 
+            ) {
+                modalErro('NÃO É POSSÍVEL MOVER A PENÚLTIMA LETRA PARA A DIREITA COM ESTE COMANDO');
+                event.preventDefault();
+                return;
+            }
+    
+            touchStartX = event.changedTouches[0].clientX;
+            touchImageElement = event.target;
+            event.preventDefault();
+        } else {
+            event.preventDefault();
+        }
+    }
+    
+    function touchEndHandler(event) {
+        event.preventDefault();
+    
+        if (!selectedButton) {
+            return;
+        }
+    
+        if (imageCount >= maxImages) {
+            modalErro('LIMITE MÁXIMO DE 5 MOVIMENTOS ATINGIDO.');
+            return;
+        }
+    
+        touchEndX = event.changedTouches[0].clientX;
+    
+        if (Math.abs(touchEndX - touchStartX) > 50) {
+            const imageUrl = touchImageElement.src;
+            const imgElement = document.createElement("img");
+            imgElement.src = imageUrl;
+            imgElement.className = "image";
+            imgElement.draggable = false;
+            const dropArea3 = document.querySelector('.drop-area3');
+            dropArea3.appendChild(imgElement);
+    
+            const customData = touchImageElement.className;
+            if (customData === "image-jump-right3" && selectedButton.nextElementSibling.nextElementSibling) {
+                selectedButton.parentElement.insertBefore(
+                    selectedButton,
+                    selectedButton.nextElementSibling.nextElementSibling.nextElementSibling
+                );
+            } else if (customData === "image-jump-left3" && selectedButton.previousElementSibling) {
+                selectedButton.parentElement.insertBefore(
+                    selectedButton,
+                    selectedButton.previousElementSibling.previousElementSibling
+                );
+            }
+    
+            imageCount++;
+        }
+        
+        if (touchImageElement) {
+            touchImageElement.style.transform = ""; // Remove a translação da imagem
+            touchImageElement = null;
+        }
+    }
+
     const dropArea3 = document.querySelector('.drop-area3');
     dropArea3.addEventListener('dragover', dragOverHandler);
     dropArea3.addEventListener('drop', dropHandler);
+    
 
     const imageJumpRight3 = document.querySelector('.image-jump-right3');
     const imageJumpLeft3 = document.querySelector('.image-jump-left3');
 
     imageJumpRight3.addEventListener('dragstart', dragStartHandler);
     imageJumpLeft3.addEventListener('dragstart', dragStartHandler);
+    
+    imageJumpRight3.addEventListener('touchstart', touchStartHandler);
+    imageJumpLeft3.addEventListener('touchstart', touchStartHandler);
+   
+    imageJumpRight3.addEventListener('touchend', touchEndHandler);
+    imageJumpLeft3.addEventListener('touchend', touchEndHandler);
 
     function verifyWord3() {
         const randomWordElement = document.getElementById('random-word3');
