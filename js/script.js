@@ -239,7 +239,7 @@ function modalInfo(){
 function stageStart1() {
     let selectedButton = null;
     let originalWord = 'LISTA';
-    let shuffledWordTemp = 'SALIT'; // Embaralhamento inicial da palavra
+    let shuffledWordTemp = 'SALIT'; 
   
     function createWordButtons(shuffledWord) {
         const randomWordElement = document.getElementById('random-word');
@@ -284,6 +284,8 @@ function stageStart1() {
     let imageCount = 0;
     const maxImages = 5;
 
+    const counterMove = document.querySelector('.game-container #counter');
+ 
     function dragStartHandler(event) {
         if (!playClicked || !selectedButton) {
             modalErro('SELECIONE UMA LETRA PARA PODER ARRASTAR A IMAGEM');
@@ -355,8 +357,8 @@ function stageStart1() {
                     selectedButton.nextElementSibling.nextElementSibling
                 )
             }
-
             imageCount++;
+            counterMove.innerHTML = 5 - imageCount;
         }
     }
     const dropArea = document.querySelector('.drop-area');
@@ -448,11 +450,8 @@ function stageStart1() {
             }
     
             imageCount++;
+            counterMove.innerHTML = 5 - imageCount;
         }
-        // if (touchImageElement) {
-        //     touchImageElement.style.transform = ""; // Remove a translação da imagem
-        //     touchImageElement = null;
-        // }
     }
     
     imageLeft.addEventListener('touchstart', touchStartHandler);
@@ -483,6 +482,7 @@ function stageStart1() {
         restart(1);
         selectedButton = null;
         imageCount = 0;
+        counterMove.innerHTML = 5;
         createWordButtons(shuffledWordTemp);
     }
 
@@ -505,8 +505,10 @@ function stageStart1() {
 
 function stageStart2() {
     let selectedButton = null;
-    let originalWord = 'WHILE';
-    let shuffledWordTemp = 'IHEWL'; 
+    let originalWord = 'DICA';
+    let shuffledWordTemp = 'ICAD'; 
+    // let originalWord = 'WHILE';
+    // let shuffledWordTemp = 'IHEWL'; 
     isFaseStarted2 = true;
   
     function createWordButtons(shuffledWord) {
@@ -551,6 +553,8 @@ function stageStart2() {
 
     let imageCount = 0;
     const maxImages = 4;
+
+    const counterMove = document.querySelector('.game-container2 #counter');
 
     function dragStartHandler(event) {
         if (!playClicked || !selectedButton) {
@@ -652,8 +656,8 @@ function stageStart2() {
                     selectedButton.previousElementSibling.previousElementSibling
                 );
             }
-
             imageCount++;
+            counterMove.innerHTML = 4 - imageCount;
         }
     }
     let touchStartX, touchEndX;
@@ -756,13 +760,8 @@ function stageStart2() {
                     selectedButton.previousElementSibling.previousElementSibling
                 );
             }
-    
             imageCount++;
-        }
-        
-        if (touchImageElement) {
-            touchImageElement.style.transform = ""; // Remove a translação da imagem
-            touchImageElement = null;
+            counterMove.innerHTML = 4 - imageCount;
         }
     }
 
@@ -814,6 +813,7 @@ function verifyWord2() {
     function restartStage2(){
         restart(2);
         imageCount = 0;
+        counterMove.innerHTML = 4;
         selectedButton = null;
         createWordButtons(shuffledWordTemp);
     }
@@ -947,11 +947,13 @@ function stageStart3() {
                 );
             }
             imageCount++;
+            counterMove.innerHTML = 3 - imageCount;
         }
     }
 
     let touchStartX, touchEndX;
     let touchImageElement = null;
+    const counterMove = document.querySelector('.game-container3 #counter');
     
     function touchStartHandler(event) {
         if (!playClicked || !selectedButton) {
@@ -1025,13 +1027,8 @@ function stageStart3() {
                     selectedButton.previousElementSibling.previousElementSibling
                 );
             }
-    
             imageCount++;
-        }
-        
-        if (touchImageElement) {
-            touchImageElement.style.transform = ""; // Remove a translação da imagem
-            touchImageElement = null;
+            counterMove.innerHTML = 3 - imageCount;
         }
     }
 
@@ -1070,6 +1067,7 @@ function stageStart3() {
     function restartStage3(){
         restart(3);
         imageCount = 0;
+        counterMove.innerHTML = 3;
         selectedButton = null;
         createWordButtons(shuffledWordTemp);
     }
