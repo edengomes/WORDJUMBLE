@@ -236,7 +236,21 @@ body{
 .btn-back{
   width: 100%;
   display: flex;
-  margin-top: -1%;
+  margin-top: 1.5%;
+  color: white;
+}
+
+.btn-back #moves{
+  display: flex;
+  margin-top: 1.5%;
+  margin-left: 65%;
+  margin-right: 5px;
+  font-size: 1.5em;
+}
+.btn-back #counter{
+  display: flex;
+  margin-top: 1.5%;
+  font-size: 1.5em;
 }
 
 h2{
@@ -595,6 +609,15 @@ h2{
     
   }
 
+  .btn-back #moves{
+    margin-left: 50%;
+    font-size: 0.8em;
+  }
+  .btn-back #counter{
+    font-size: 0.8em;
+  }
+  
+
   .btn-stages{
     display: flex;
     align-items: center;
@@ -843,6 +866,16 @@ h2{
     height: 75%;
     border: 8px solid rgba(165, 42, 42, 0.616);
   }
+
+  
+  .btn-back #moves{
+    margin-left: 65%;
+    font-size: 2em;
+  }
+  .btn-back #counter{
+    font-size: 2em;
+  }
+  
   .game-container button{
       width: 150px;
       height: 60px;
