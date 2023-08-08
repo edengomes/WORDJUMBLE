@@ -22,16 +22,22 @@
             <h3>O jogo "WORD JUMBLE" apresenta um desafio aos jogadores: desembaralhar palavras pré-definidas em cada fase. Esse processo requer a seleção de uma letra por vez (clicando) e, em seguida, o arraste na direção correta através do comando de direção.
             </h3>
             <hr>
-            <p>Neste exemplo, observe na imagem abaixo que a palavra pré-definida é "DICA", sendo a letra "D" a escolhida. </p>
+            <p>Neste exemplo, observe na imagem abaixo que a palavra pré-definida é "DICA", sendo a letra "D" a selecionada. </p>
             <img src="./imgs/dica1.png" alt="dica1" style="max-width: 30%; max-height: 40%;">
             <hr>
-            <p>Observe na imagem abaixo que a letra "D" foi movida para esquerda através do comando de direção</p>
+            <p>Observe abaixo, a letra D sendo movida para esquerda através do arrasto do comando de direção para esquerda</p>
+            <img src="./imgs/dica-gif.gif" alt="dica-gif" style="max-width: 40%; max-height: 40%;">
+            <hr>  
+            <p>Observe na imagem abaixo, o resultado final após o arrasto da letra "D"</p>
             <img src="./imgs/dica2.png" alt="dica2" style="max-width: 30%; max-height: 40%;">
             <hr>
-            <p>Observe  na imagem abaixo que a letra "D" foi movida duas letras a esquerda, através do comando de direção pular para esquerda</p>
+            <p>Observe abaixo, que a letra "D" foi movida duas letras a esquerda, através do comando de direção pular para esquerda</p>
+            <img src="./imgs/dica-gif2.gif" alt="dica-gif2" style="max-width: 40%; max-height: 40%;">
+            <hr>
+            <p>Observe na imagem abaixo, o resultado final após o arrasto da letra "D"</p>
             <img src="./imgs/dica3.png" alt="dica3" style="max-width: 30%; max-height: 40%;">
             <hr>
-            <p> Observe na imagem abaixo que ao clicar no botão "VERIFICAR", foi feita a verificação se a palavra foi desembaralhada corretamente</p>
+            <p> Observe na imagem abaixo, que ao clicar no botão "VERIFICAR", foi feita a verificação se a palavra foi desembaralhada corretamente</p>
             <hr>
             <img src="./imgs/dica4.png" alt="dica4" style="max-width: 30%; max-height: 40%;">
             <hr>
@@ -66,10 +72,11 @@
           </button>
         </div>
       </div>
-
       <div class="game-container" style="display: none">
         <div class="btn-back">
           <button id="back-to-fase">Voltar</button>
+          <p id="moves">Movimentos:</p>
+          <p id="counter">5</p>
         </div>
         <div class="word-container">LISTA</div>
         <div class="drop-area"></div>
@@ -91,8 +98,10 @@
       <div class="game-container2" style="display: none">
         <div class="btn-back">
           <button id="back-to-fase2">Voltar</button>
+          <p id="moves">Movimentos:</p>
+          <p id="counter">4</p>
         </div>
-        <div class="word-container2">WHILE</div>
+        <div class="word-container2">DICA</div>
         <div class="drop-area2"></div>
         <div class="image-container2">
           <img
@@ -117,26 +126,17 @@
       </div>
       <div class="game-container3" style="display: none">
         <div class="btn-back">
-          <button id="back-to-fase3">Voltar</button></div>
+          <button id="back-to-fase3">Voltar</button>
+          <p id="moves">Movimentos:</p>
+          <p id="counter">3</p>
+        </div>
+          
         <div class="word-container2">PILHA</div>
-        <div class="drop-area3">
-          <!-- A área de soltar imagens está vazia -->
+        <div class="drop-area3"></div>
+         <div class="image-container3">
+          <img class="image-jump-left3"src="./imgs/seta-jump-left.png"draggable="true"/>
+          <img class="image-jump-right3"src="./imgs/seta-jump-right.png"draggable="true"/>
         </div>
-
-        <div class="image-container3">
-          <!-- Imagens que podem ser arrastadas -->
-          <img
-            class="image-jump-left3"
-            src="./imgs/seta-jump-left.png"
-            draggable="true"
-          />
-          <img
-            class="image-jump-right3"
-            src="./imgs/seta-jump-right.png"
-            draggable="true"
-          />
-        </div>
-
         <div class="word-list-container3">
           <div id="random-word3" class="word-buttons3"></div>
           <h2>Palavra Embaralhada</h2>
