@@ -505,10 +505,9 @@ function stageStart1() {
 
 function stageStart2() {
     let selectedButton = null;
-    let originalWord = 'DICA';
-    let shuffledWordTemp = 'ICAD'; 
-    // let originalWord = 'WHILE';
-    // let shuffledWordTemp = 'IHEWL'; 
+    let originalWord = 'WHILE';
+    let shuffledWordTemp = 'IHEWL'; 
+
     isFaseStarted2 = true;
   
     function createWordButtons(shuffledWord) {
