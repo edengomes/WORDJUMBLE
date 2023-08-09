@@ -92,7 +92,6 @@ function startFase(faseNumber) {
         if(!isFaseStarted2){
             faseScreen.style.display = 'none';
             gameContainer2.style.display = 'flex';
-           
             stageStart2();
             isFaseStarted2 = true;
         }else{
