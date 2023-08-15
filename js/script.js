@@ -225,7 +225,7 @@ function modalWin(text){
 
 function modalInfo(){
     const btnModal1 = document.querySelector('#btn-modal1');
-    const modal = document.querySelector('.homeScreen-container dialog').scrollTop = 100;
+    const modal = document.querySelector('.homeScreen-container dialog').scrollTop = 0;
     const btnClose = document.querySelector('#btn-close');
     modal.show()
 
@@ -302,13 +302,13 @@ function stageStart1() {
     
             if (
                 event.target.classList.contains("image-left") &&
-                selectedButtonIndex === 0 // Verifica se é a primeira letra
+                selectedButtonIndex === 0 
             ) {
                 modalErro('NÃO É POSSÍVEL MOVER A PRIMEIRA LETRA PARA ESQUERDA');
                 event.preventDefault();
             } else if (
                 event.target.classList.contains("image-right") &&
-                selectedButtonIndex === lastIndex // Verifica se é a primeira letra
+                selectedButtonIndex === lastIndex 
             ) {
                 modalErro('NÃO É POSSÍVEL MOVER A ÚLTIMA LETRA PARA DIREITA');
             } else {
@@ -467,10 +467,10 @@ function stageStart1() {
         if (shuffledRandom === originalWord) {
             modalWin('PARABÉNS, A PALAVRA FOI DESEMBARALHADA CORRETAMENTE! CLIQUE EM "PRÓXIMA FASE" PARA AVANÇAR DE FASE.');
             const nextPhase = document.querySelector('#next-phase');
-            const statusFase2 = document.getElementById('fase2-button');
             const img2 = document.getElementById('img2');
+            const btnPhase2 = document.getElementById('fase2-button'); 
+            btnPhase2.disabled = false;
             img2.src = './imgs/unlocked.png'; 
-            statusFase2.disabled = false;
             statusFase2.style.cursor = 'pointer';
             nextPhase.style.display = 'flex';
         } else {
