@@ -471,7 +471,7 @@ function stageStart1() {
             const btnPhase2 = document.getElementById('fase2-button'); 
             btnPhase2.disabled = false;
             img2.src = './imgs/unlocked.png'; 
-            statusFase2.style.cursor = 'pointer';
+            btnPhase2.style.cursor = 'pointer';
             nextPhase.style.display = 'flex';
         } else {
             modalErro('PALAVRA DESEMBARALHADA INCORRETAMENTE! CLIQUE NO BOTÃO "RESTART" PARA REINICIAR A FASE.')
@@ -874,7 +874,7 @@ function stageStart3() {
     createWordButtons(shuffledWordTemp);
 
     let imageCount = 0;
-    const maxImages = 10;
+    const maxImages = 3;
 
     function dragStartHandler(event) {
         if (!playClicked || !selectedButton) {
@@ -921,7 +921,7 @@ function stageStart3() {
         }
 
         if (imageCount >= maxImages) {
-            alert("LIMITE MÁXIMO DE 5 MOVIMENTOS ATINGIDOS");
+            modalErro("LIMITE MÁXIMO DE 5 MOVIMENTOS ATINGIDOS");
             return;
         }
         if (event.target.className === "drop-area3" && event.dataTransfer.types.includes("text/plain")) {
