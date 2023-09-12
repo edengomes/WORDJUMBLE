@@ -237,9 +237,20 @@ function modalInfo(){
 
 function stageStart1() {
     let selectedButton = null;
-    let originalWord = 'LISTA';
-    let shuffledWordTemp = 'SALIT'; 
-  
+    const wordDictionary = {
+        "LISTA": "IALTS",
+        "PILHA": "PHIAL",
+        "GRAFO": "RGOAF"
+    };
+
+    const words = Object.keys(wordDictionary);
+    const selectedWord = words[Math.floor(Math.random() * words.length)];
+    const shuffledWordTemp = wordDictionary[selectedWord];
+
+    const wordDisplayElement = document.querySelector('.word-container');
+    wordDisplayElement.textContent = selectedWord;
+
+
     function createWordButtons(shuffledWord) {
         const randomWordElement = document.getElementById('random-word');
         randomWordElement.innerHTML = '';
@@ -464,14 +475,14 @@ function stageStart1() {
         const randomWordElement = document.getElementById('random-word');
         const shuffledRandom = randomWordElement.textContent;
 
-        if (shuffledRandom === originalWord) {
+        if (shuffledRandom === selectedWord) {
             modalWin('PARABÉNS, A PALAVRA FOI DESEMBARALHADA CORRETAMENTE! CLIQUE EM "PRÓXIMA FASE" PARA AVANÇAR DE FASE.');
             const nextPhase = document.querySelector('#next-phase');
             const img2 = document.getElementById('img2');
             const btnPhase2 = document.getElementById('fase2-button'); 
             btnPhase2.disabled = false;
             img2.src = './imgs/unlocked.png'; 
-            statusFase2.style.cursor = 'pointer';
+            btnPhase2.style.cursor = 'pointer';
             nextPhase.style.display = 'flex';
         } else {
             modalErro('PALAVRA DESEMBARALHADA INCORRETAMENTE! CLIQUE NO BOTÃO "RESTART" PARA REINICIAR A FASE.')
@@ -504,8 +515,18 @@ function stageStart1() {
 
 function stageStart2() {
     let selectedButton = null;
-    let originalWord = 'WHILE';
-    let shuffledWordTemp = 'IHEWL'; 
+
+    const wordDictionary = {
+        "WHILE": "IHEWL",
+        "FOREACH": "RFOAEHC",
+    };
+
+    const words = Object.keys(wordDictionary);
+    const selectedWord = words[Math.floor(Math.random() * words.length)];
+    const shuffledWordTemp = wordDictionary[selectedWord];
+   
+    const wordDisplayElement = document.querySelector('.word-container2');
+    wordDisplayElement.textContent = selectedWord;
 
     isFaseStarted2 = true;
   
@@ -792,7 +813,7 @@ function verifyWord2() {
     const randomWordElement = document.getElementById('random-word2');
     const shuffledRandom = randomWordElement.textContent;
 
-    if (shuffledRandom === originalWord) {
+    if (shuffledRandom === selectedWord) {
         modalWin('PARABÉNS, A PALAVRA FOI DESEMBARALHADA CORRETAMENTE. CLIQUE NO BOTÃO "PRÓXIMA FASE" PARA AVANÇAR DE FASE.');
             const nextPhase = document.getElementById('next-phase2');
             const statusFase3 = document.getElementById('fase3-button')
@@ -830,9 +851,22 @@ function verifyWord2() {
 
 function stageStart3() {
     let selectedButton = null;
-    let originalWord = 'PILHA';
-    let shuffledWordTemp = 'HIAPL'; 
     isFaseStarted3 = true;
+
+    const wordDictionary = {
+        "FLOAT": "OFTAL",
+        "CHAR   ": "HRCA",
+        
+        "STRING": "RSTNGI"
+    };
+
+    const words = Object.keys(wordDictionary);
+    const selectedWord = words[Math.floor(Math.random() * words.length)];
+    const shuffledWordTemp = wordDictionary[selectedWord];
+   
+    const wordDisplayElement = document.querySelector('.word-container3');
+    wordDisplayElement.textContent = selectedWord;
+
 
     function createWordButtons(shuffledWord) {
         const randomWordElement = document.getElementById('random-word3');
@@ -874,7 +908,7 @@ function stageStart3() {
     createWordButtons(shuffledWordTemp);
 
     let imageCount = 0;
-    const maxImages = 10;
+    const maxImages = 3;
 
     function dragStartHandler(event) {
         if (!playClicked || !selectedButton) {
@@ -921,7 +955,7 @@ function stageStart3() {
         }
 
         if (imageCount >= maxImages) {
-            alert("LIMITE MÁXIMO DE 5 MOVIMENTOS ATINGIDOS");
+            modalErro("LIMITE MÁXIMO DE 3 MOVIMENTOS ATINGIDOS");
             return;
         }
         if (event.target.className === "drop-area3" && event.dataTransfer.types.includes("text/plain")) {
@@ -998,7 +1032,7 @@ function stageStart3() {
         }
     
         if (imageCount >= maxImages) {
-            modalErro('LIMITE MÁXIMO DE 5 MOVIMENTOS ATINGIDO.');
+            modalErro('LIMITE MÁXIMO DE 3 MOVIMENTOS ATINGIDO.');
             return;
         }
     
@@ -1051,7 +1085,7 @@ function stageStart3() {
         const randomWordElement = document.getElementById('random-word3');
         const shuffledRandom = randomWordElement.textContent;
     
-        if (shuffledRandom === originalWord) {
+        if (shuffledRandom === selectedWord) {
             modalWin('PARABÉNS! A palavra foi desembaralhada corretamente! VOCÊ CONCLUIU AS TRÊS FASES');
             const btnRestartGame = document.getElementById('restartAPP');
             btnRestartGame.style.display = 'flex';

@@ -18,6 +18,7 @@
         </div>
         <div class="box-modal">
           <dialog>
+            <button id="btn-close">X</button>
             <h2>COMO JOGAR </h2>
             <h3>O jogo "WORD JUMBLE" apresenta um desafio aos jogadores: desembaralhar palavras pré-definidas em cada fase. Esse processo requer a seleção de uma letra por vez (clicando) e, em seguida, o arraste na direção correta através do comando de direção.
             </h3>
@@ -44,7 +45,7 @@
             <p>E por último, a mensagem informando o resultado da verificação</p>
             <img src="./imgs/dica5.png" alt="dica5" style="max-width: 50%; max-height: 50%;">
             <hr>
-            <button id="btn-close">Fechar</button>
+            
           </dialog>
         </div>
         <h1>WORD JUMBLE!</h1>
@@ -54,7 +55,9 @@
       </div>
       <div class="menu-container" style="display: none">
         <div class="menu-back-btn">
-          <button id="btn-backMenu">Voltar</button>
+          <button id="btn-backMenu">
+            <img id="back" src="./imgs/back.png" alt="">
+          </button>
         </div>
         <h1>FASES</h1>
         <div class="btn-stages">
@@ -74,11 +77,13 @@
       </div>
       <div class="game-container" style="display: none">
         <div class="btn-back">
-          <button id="back-to-fase">Voltar</button>
+          <button id="back-to-fase">
+            <img id="back" src="./imgs/back.png" alt="">
+          </button>
+          <div class="word-container"></div>
           <p id="moves">Movimentos:</p>
           <p id="counter">5</p>
         </div>
-        <div class="word-container">LISTA</div>
         <div class="drop-area"></div>
         <div class="image-container">
           <img class="image-left" src="./imgs/seta-left.png" draggable="true" />
@@ -97,11 +102,13 @@
       </div>
       <div class="game-container2" style="display: none">
         <div class="btn-back">
-          <button id="back-to-fase2">Voltar</button>
+          <button id="back-to-fase2">
+            <img id="back" src="./imgs/back.png" alt="">
+          </button>
+          <div class="word-container2"></div>
           <p id="moves">Movimentos:</p>
           <p id="counter">4</p>
         </div>
-        <div class="word-container2">WHILE</div>
         <div class="drop-area2"></div>
         <div class="image-container2">
           <img
@@ -126,12 +133,13 @@
       </div>
       <div class="game-container3" style="display: none">
         <div class="btn-back">
-          <button id="back-to-fase3">Voltar</button>
+          <button id="back-to-fase3">
+            <img id="back" src="./imgs/back.png" alt="">
+          </button>
+          <div class="word-container3"></div>
           <p id="moves">Movimentos:</p>
           <p id="counter">3</p>
         </div>
-          
-        <div class="word-container2">PILHA</div>
         <div class="drop-area3"></div>
          <div class="image-container3">
           <img class="image-jump-left3"src="./imgs/seta-jump-left.png"draggable="true"/>

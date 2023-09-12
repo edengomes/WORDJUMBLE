@@ -82,10 +82,7 @@ body{
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
   margin-top: -16%;
-
   overflow: auto;
-
-  
 }
 .box-modal dialog h2{
   margin: auto;
@@ -96,12 +93,13 @@ body{
   width: 60px;
   height: 25px;
   border-radius: 5px;
-  background-color: rgb(27, 102, 27);
+  background-color: red;
   margin-top: 2%;
   margin-bottom: 2%;
   font-size: 1em;
   color: white;
-
+  margin-left: 75%;
+  font-weight: bold;
 }
 
 .box-modal p{
@@ -141,6 +139,8 @@ body{
   cursor: pointer;
   box-shadow: 0px 5px 10px white; /* Sombra do botão */
   transition: transform 0.2s ease-in-out; /* Efeito de transição no hover */
+  max-width: 70px;
+  max-height: 50px;
 } 
 .menu-back-btn {
   width: 100%;
@@ -171,6 +171,7 @@ body{
   border: 20px solid rgba(165, 42, 42, 0.616);
   border-radius: 4px;
   background-color: rgb(27, 102, 27);
+  gap: 5px;
 }
 
 
@@ -202,6 +203,8 @@ body{
   color: white;
   font-weight: bold;
   text-transform: uppercase;
+  margin-left:30%;
+  text-align: center;
 }
 
 .drop-area {
@@ -214,12 +217,23 @@ body{
   justify-content: center;
 }
 
+.drop-area img{
+  background-color: rgb(49, 243, 49);
+  border-radius: 10px;
+}
+
 .image-container {
   width: 30vw;
   cursor: not-allowed;
   display: flex;
   justify-content: center;
   gap: 5px;
+  margin: 10px;
+}
+.image-container img {
+ background-color: rgb(49, 243, 49);
+ border-radius: 10px;
+ margin: 5px;
 }
 
 .word-list-container h2 {
@@ -242,11 +256,11 @@ body{
 
 .btn-back #moves{
   display: flex;
+  margin-left: 26%;
   margin-top: 1.5%;
-  margin-left: 65%;
-  margin-right: 5px;
   font-size: 1.5em;
 }
+
 .btn-back #counter{
   display: flex;
   margin-top: 1.5%;
@@ -380,6 +394,7 @@ h2{
   border: 20px solid rgba(165, 42, 42, 0.616);
   border-radius: 4px;
   background-color: rgb(27, 102, 27);
+  gap: 5px;
 }
 
 .word-button2.selected {
@@ -411,10 +426,16 @@ h2{
   border: 10px solid rgba(165, 42, 42, 0.616);
   margin-top: 2vh;
   justify-content: center;
+
+}
+.drop-area2 img{
+  background-color: rgb(49, 243, 49);
+  border-radius: 10px;
 }
 
 .word-container2 {
   font-size: 3em;
+  margin-left: 25%;
   color: white;
   font-weight: bold;
   text-transform: uppercase;
@@ -422,12 +443,19 @@ h2{
 
 .image-container2 {
   width: 100%;
-  margin-top: 20px; /* Adicionar um espaçamento entre a drop-area e a image-container */
+  margin-top: 20px; 
   cursor: not-allowed;
   display: flex;
   justify-content: center;
   gap: 5px;
+  margin: 10px;
 }
+
+.image-container2 img {
+  background-color: rgb(49, 243, 49);
+  border-radius: 10px;
+  margin: 5px;
+ }
 
 .word-list-container2 h2 {
   justify-content: center;
@@ -455,13 +483,14 @@ h2{
   margin: auto;
   width: 70vw;
   height: 85vh;
-  display: none; /* Inicia oculto */
+  display: none; 
   justify-content: center;
   align-items: center;
   flex-direction: column;
   border: 20px solid rgba(165, 42, 42, 0.616);
   border-radius: 4px;
   background-color: rgb(27, 102, 27);
+  gap: 5px;
 }
 
 .word-button3.selected {
@@ -474,26 +503,27 @@ h2{
   justify-content: center;
   display: flex;
   align-items: center;
-  background-color:#FFCC00; /* Cor de fundo do botão (amarelo) */
-  color: #FFFFFF; /* Cor do texto do botão (branco) */
+  background-color:#FFCC00; 
+  color: #FFFFFF; 
   font-size: 2em;
   font-weight: bold;
   padding: 6px 15px;
-  border-radius: 10px; /* Bordas arredondadas */
+  border-radius: 10px; 
   cursor: pointer;
-  box-shadow: 0px 5px 10px white; /* Sombra do botão */
-  transition: transform 0.2s ease-in-out; /* Efeito de transição no hover */
+  box-shadow: 0px 5px 10px white;
+  transition: transform 0.2s ease-in-out; 
 }
 
 .word-container3 {
   font-size: 3em;
+  margin-left: 30%;
   color: white;
   font-weight: bold;
   text-transform: uppercase;
 }
 
 .drop-area3 {
-  width: 50%; /* Aumentar a largura para 300px */
+  width: 50%; 
   height: 100px;
   display: flex;
   align-items: center;  
@@ -502,14 +532,27 @@ h2{
   justify-content: center;
 }
 
+.drop-area3 img{
+  background-color: rgb(49, 243, 49);
+  border-radius: 10px;
+}
+
 .image-container3 {
   width: 100%;
-  margin-top: 20px; /* Adicionar um espaçamento entre a drop-area e a image-container */
+  margin-top: 20px;
   cursor: not-allowed;
   display: flex;
   justify-content: center;
   gap: 5px;
+  margin: 10px;
+  
 }
+
+.image-container3 img {
+  background-color: rgb(49, 243, 49);
+  border-radius: 10px;
+  margin: 5px;
+ }
 
 .word-list-container3 h2 {
   justify-content: center;
@@ -596,7 +639,7 @@ h2{
 
   .menu-container #btn-backMenu{
     width: 70px;
-    height: 40px;
+    height: 50px;
     font-size:15px;
   } 
   .menu-container h1{
